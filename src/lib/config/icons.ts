@@ -1,0 +1,24 @@
+export const enum Icons {
+  EYE = "iconamoon:eye",
+  EYE_FILLED = "tabler:eye-filled",
+  EYE_OFF = "iconamoon:eye-off",
+  SEARCH = "iconamoon:search",
+  PENCIL = "bxs:pencil",
+  TRASH = "basil:trash-outline",
+  USER_CIRCLE_FILL = "iconamoon:user-circle-fill",
+  MENU = "ic:round-menu",
+  XMARK = "ic:round-close",
+  ARROW_RIGHT = "ic:round-arrow-right",
+  ARROW_LEFT = "ic:round-arrow-left",
+  BROKEN_IMAGE = "ic:round-broken-image",
+  UPLOAD = "icon-park-outline:upload-one",
+  PROFILE = "solar:user-circle-bold",
+  LOGOUT = "humbleicons:logout",
+  LOCK = "mdi:password-outline",
+  LINK = "ant-design:link-outlined",
+  UNLINK = "mynaui:unlink",
+  CHECK = "ic:round-check",
+  SAD = "mingcute:sad-fill",
+}
+
+export const enum NavbarIcons {}

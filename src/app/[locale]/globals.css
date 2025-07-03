@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../../../.flowbite-react/class-list.json";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Palette colors */
+  --primary-light: #5d82e7;
+  --primary-main: #4c66af;
+  --primary-dark: #35477b;
+  --primary-contrast-text: #fff;
+
+  --background-paper: #fff;
+  --background-default: #fff;
+
+  --text-primary: #000;
+  --text-secondary: #637381;
+  --text-disabled: #dddee3;
+
+  --divider: rgba(58, 53, 65, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter_28pt-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter_28pt-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter_28pt-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
