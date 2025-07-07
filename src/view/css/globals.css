@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-dir";
+@source "../../../.flowbite-react/class-list.json";
+
+/* force dark mode to used class */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #000;
+
+  /* Palette colors */
+  --color-primary-light: #6b8ef2;
+  --color-primary: #4c66af;
+  --color-primary-dark: #3a518f;
+  --color-primary-darker: #35477b;
+
+  /* Text colors */
+  --color-dark: #111827;
+  --color-secondary: #637381;
+  --color-disabled: #dddee3;
+  --color-divider: oklch(92.8% 0.006 264.531);
+
+  /* Fonts */
+  --font-cairo: "Cairo", Arial, Helvetica, sans-serif;
+  --font-leckerli-one: "LeckerliOne", Arial, Helvetica, sans-serif;
+  --font-lalezar: "Lalezar", Arial, Helvetica, sans-serif;
+
+  --font-special-ar: var(--font-lalezar);
+  --font-special-en: var(--font-leckerli-one);
+  --font-primary: var(--font-cairo);
+}
+
+@variant in-rtl {
+  @theme inline {
+    --font-special: var(--font-special-ar);
+  }
+}
+
+@variant in-ltr {
+  @theme inline {
+    --font-special: var(--font-special-en);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-primary);
+}

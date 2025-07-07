@@ -1,4 +1,6 @@
-import "./globals.css";
+import "@/view/css/globals.css";
+import "@/view/css/fonts.css";
+import "@/view/css/components.css";
 
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";

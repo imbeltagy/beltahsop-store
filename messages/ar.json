@@ -5,27 +5,6 @@
     "Home": {
       "title": "الرئيسية | Beltahop"
     },
-    "Categories": {
-      "title": "التصنيفات الرئيسية | Beltahop"
-    },
-    "SubCategories": {
-      "title": "التصنيفات الفرعية | Beltahop"
-    },
-    "Brands": {
-      "title": "العلامات التجارية | Beltahop"
-    },
-    "Products": {
-      "title": "المنتجات | Beltahop"
-    },
-    "Tags": {
-      "title": "الوسوم | Beltahop"
-    },
-    "Labels": {
-      "title": "العناوين | Beltahop"
-    },
-    "Offers": {
-      "title": "العروض | Beltahop"
-    },
     "Auth": {
       "login_title": "تسجيل الدخول | Beltahop",
       "register_title": "إنشاء حساب | Beltahop",
@@ -35,15 +14,7 @@
     }
   },
   "Navigation": {
-    "home": "الرئيسية",
-    "products_section": "المنتجات",
-    "categories": "التصنيفات الرئيسية",
-    "sub_categories": "التصنيفات الفرعية",
-    "brands": "العلامات التجارية",
-    "products": "المنتجات",
-    "offers": "العروض",
-    "tags": "الوسوم",
-    "labels": "العناوين"
+    "home": "الرئيسية"
   },
   "Global": {
     "Validation": {
@@ -59,27 +30,7 @@
       "confirm_password_required": "يرجى تأكيد كلمة المرور",
       "passwords_must_match": "يجب أن تتطابق كلمات المرور",
       "otp_required": "رمز التحقق مطلوب",
-      "otp_length": "يجب أن يتكون رمز التحقق من 6 أحرف",
-      "name_ar_required": "الاسم العربي مطلوب",
-      "name_en_required": "الاسم الإنجليزي مطلوب",
-      "description_ar_required": "الوصف العربي مطلوب",
-      "description_en_required": "الوصف الإنجليزي مطلوب",
-      "cover_required": "صورة الغلاف مطلوبة",
-      "color_required": "اللون مطلوب",
-      "product_required": "المنتج مطلوب",
-      "type_required": "نوع العرض مطلوب",
-      "value_required": "القيمة مطلوبة",
-      "value_min": "يجب ألا تقل القيمة عن 0.01",
-      "quantity_required": "الكمية مطلوبة",
-      "quantity_min": "يجب ألا تقل الكمية عن 0",
-      "min_price_required": "الحد الأدنى للسعر مطلوب",
-      "min_price_min": "يجب ألا يقل الحد الأدنى للسعر عن 0",
-      "price_required": "السعر مطلوب",
-      "price_min": "يجب ألا يقل السعر عن 0",
-      "offer_quantity_min": "يجب ألا تقل كمية العروض عن 1",
-      "offer_quantity_required": "كمية العروض مطلوبة",
-      "max_per_client_min": "يجب ألا يقل الحد الأقصى لكل عميل عن 1",
-      "max_per_client_required": "الحد الأقصى لكل عميل مطلوب"
+      "otp_length": "يجب أن يتكون رمز التحقق من 6 أحرف"
     },
     "Label": {
       "email": "البريد الإلكتروني",
@@ -89,40 +40,7 @@
       "new_password": "كلمة المرور الجديدة",
       "fullName": "الاسم الكامل",
       "otp": "أدخل رمز التحقق",
-      "search": "بحث",
-      "name_ar": "الاسم (عربي)",
-      "name_en": "الاسم (إنجليزي)",
-      "description_ar": "الوصف (عربي)",
-      "description_en": "الوصف (إنجليزي)",
-      "cover": "الغلاف",
-      "cover_list": "صور الغلاف",
-      "disabled": "معطل",
-      "employee_read_only": "لا تعدل إلا بواسطة المشرف",
-      "category": "التصنيف الرئيسي",
-      "all": "الجميع",
-      "yes": "نعم",
-      "no": "لا",
-      "sub_category": "التصنيف الفرعي",
-      "brand": "العلامة التجارية",
-      "tag": "الوسم",
-      "offer": "العرض",
-      "product": "المنتج",
-      "label": "العنوان",
-      "color": "اللون",
-      "type": "النوع",
-      "percent": "النسبة المئوية",
-      "fixed": "القيمة الثابتة",
-      "offer_quantity": "كمية العرض",
-      "offer_type": "نوع العرض",
-      "max_per_client": "الحد الأقصى لكل عميل",
-      "value": "القيمة",
-      "original_price": "السعر الأصلي",
-      "min_price": "الحد الأدنى للسعر",
-      "final_price": "السعر بعد الخصم",
-      "quantity": "الكمية",
-      "price": "السعر",
-      "status": "الحالة",
-      "enabled": "مفعل"
+      "search": "بحث"
     },
     "Helper": {
       "upload_drag_drop_file": "اسحب وأفلت الملف هنا أو انقر للتحميل",
@@ -131,9 +49,7 @@
       "upload_drop_here_files": "أفلت الملفات هنا",
       "upload_file_size_error": "حجم الملف ({current}) يتجاوز الحد الأقصى المسموح به ({max})",
       "upload_file_type_error": "نوع الملف غير مسموح به. الأنواع المقبولة: {accepted}",
-      "upload_accepted_types": "أنواع الملفات المقبولة: {types}",
-      "min_price_enforced": "تم تطبيق الحد الأدنى للسعر",
-      "no_data": "لا يوجد بيانات"
+      "upload_accepted_types": "أنواع الملفات المقبولة: {types}"
     },
     "Action": {
       "login": "تسجيل الدخول",
@@ -159,26 +75,6 @@
       "unlink": "فصل",
       "enable": "تفعيل",
       "disable": "تعطيل"
-    },
-    "Table": {
-      "rows_per_page": "عدد الصفوف في الصفحة:",
-      "of": "من",
-      "more_than": "أكثر من",
-      "dense": "تكديس"
-    },
-    "Dialog": {
-      "delete_title": "حذف {label}",
-      "delete_content": "هل أنت متأكد من حذف هذا {label}؟ لا يمكن التراجع عن هذا الإجراء.",
-      "unlink_title": "فصل {label}",
-      "unlink_content": "هل أنت متأكد من فصل هذا {label} عن {parent} المتصل به؟ يمكن التراجع عن هذا الإجراء."
-    },
-    "Message": {
-      "delete_success": "تم حذف {name} بنجاح",
-      "create_success": "تم إنشاء {name} بنجاح",
-      "update_success": "تم تعديل {name} بنجاح",
-      "link_success": "تم ربط {name} بنجاح",
-      "unlink_success": "تم فصل {name} بنجاح",
-      "max_form_data_size": "حجم البيانات ({current}) يتجاوز الحد الأقصى المسموح به ({max})"
     }
   },
   "Pages": {
@@ -208,57 +104,16 @@
       "incorrect_password": "كلمة المرور غير صحيحة",
       "login_instead": "هل تود تسجيل الدخول بدلا من هذا؟"
     },
-    "Categories": {
-      "title": "التصنيفات الرئيسية",
-      "create": "إنشاء تصنيف رئيسي",
-      "edit": "تعديل التصنيف الرئيسي",
-      "link_sub_category": "ربط تصنيف فرعي"
-    },
-    "SubCategories": {
-      "title": "التصنيفات الفرعية",
-      "create": "إنشاء تصنيف فرعي",
-      "edit": "تعديل التصنيف الفرعي",
-      "link_to_category": "ربط بالتصنيف الرئيسي",
-      "unlink_from_category": "فصل عن التصنيف الرئيسي",
-      "link_to_product": "ربط بالمنتج"
-    },
-    "Brands": {
-      "title": "العلامات التجارية",
-      "create": "إنشاء علامة تجارية",
-      "edit": "تعديل العلامة التجارية",
-      "link_to_product": "ربط بالمنتج"
-    },
-    "Products": {
-      "title": "المنتجات",
-      "create": "إنشاء منتج",
-      "edit": "تعديل المنتج",
-      "link_to_sub_category": "ربط بالتصنيف الفرعي",
-      "unlink_from_sub_category": "فصل عن التصنيف الفرعي",
-      "link_to_brand": "ربط بالعلامة التجارية",
-      "unlink_from_brand": "فصل عن العلامة التجارية",
-      "link_to_tag": "ربط بالوسم",
-      "unlink_from_tag": "فصل عن الوسم",
-      "link_to_label": "ربط بالعنوان",
-      "unlink_from_label": "فصل عن العنوان"
-    },
-    "Tags": {
-      "title": "الوسوم",
-      "create": "إنشاء وسم",
-      "edit": "تعديل الوسم",
-      "link_to_product": "ربط بالمنتج",
-      "unlink_from_product": "فصل عن المنتج"
-    },
-    "Labels": {
-      "title": "العناوين",
-      "create": "إنشاء عنوان",
-      "edit": "تعديل العنوان",
-      "link_to_product": "ربط بالمنتج",
-      "unlink_from_product": "فصل عن المنتج"
-    },
-    "Offers": {
-      "title": "العروض",
-      "create": "إنشاء عرض",
-      "edit": "تعديل العرض"
+    "Home": {
+      "Hero": {
+        "headline": "اربط حذائك لتحصل على شيء مختلف. ✨",
+        "subline": "افتح لنفسك الفرصة للتميز مع إبداعاتنا الفريدة من نوعها للأحذية",
+        "cta": "اشترِ الآن",
+        "SubText": {
+          "line1": "5,000 شخصًا مثلك",
+          "line2": "قاموا بشرائهذا المنتج!"
+        }
+      }
     }
   }
 }

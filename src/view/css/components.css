@@ -1,0 +1,30 @@
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  .icon-btn {
+    display: inline-grid;
+    height: theme(spacing.10);
+    width: theme(spacing.10);
+    place-items: center;
+    border-radius: var(--radius-md);
+    padding: theme(spacing.1);
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-divider);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 calc(var(--spacing) / 2) var(--color-secondary);
+    }
+  }
+}
+
+a {
+  color: var(--color-primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
