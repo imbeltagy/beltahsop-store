@@ -1,17 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
-import Link from "next/link";
 
 import { yup } from "@/lib/utils/yup";
 import { paths } from "@/lib/config/paths";
 import { useAuthStore } from "@/lib/store/auth";
 import { EMAIL_REGEX } from "@/lib/config/global";
+import { Button } from "@/view/components/elements";
+import Alert from "@/view/components/elements/alert";
 import RHFTextInput from "@/view/components/rhf-hooks/rhf-textinput";
+
+import AuthHeading from "../../auth-headding";
 
 export default function RegisterView() {
   const t = useTranslations();
@@ -79,19 +83,15 @@ export default function RegisterView() {
 
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-3xl font-bold">{t("Pages.Auth.register_title")}</h1>
-      <p className="mb-5 text-base text-gray-500">
-        {t("Pages.Auth.register_subtitle")}
-      </p>
+      <AuthHeading
+        title={t("Pages.Auth.register_title")}
+        subtitle={t("Pages.Auth.register_subtitle")}
+      />
 
       <FormProvider {...methods}>
         <form onSubmit={onSubmit}>
           <div className="flex flex-col gap-2">
-            {error && (
-              <div className="rounded border border-red-200 bg-red-100 px-4 py-2 text-red-700">
-                {error}
-              </div>
-            )}
+            {error && <Alert variant="error">{error}</Alert>}
 
             <RHFTextInput
               name="email"
@@ -116,22 +116,18 @@ export default function RegisterView() {
               label={t("Global.Label.confirm_password")}
             />
 
-            <button
+            <Button
               type="submit"
-              className="bg-primary-600 hover:bg-primary-700 w-full rounded-lg py-3 text-lg font-semibold text-white transition disabled:opacity-50"
+              className="mt-1"
               disabled={isSubmitting}
+              fullWidth
             >
               {t("Global.Action.register")}
-            </button>
+            </Button>
 
             <p className="text-center text-sm">
               {t("Pages.Auth.have_account")}{" "}
-              <Link
-                href={paths.auth.login}
-                className="text-primary-600 hover:underline"
-              >
-                {t("Global.Action.login")}
-              </Link>
+              <Link href={paths.auth.login}>{t("Global.Action.login")}</Link>
             </p>
           </div>
         </form>

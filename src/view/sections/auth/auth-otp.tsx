@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, FormProvider } from "react-hook-form";
-// Removed MUI imports
-// import { Stack, Alert, Button, Typography } from '@mui/material';
 
 import { yup } from "@/lib/utils/yup";
 import { OTPPurpose } from "@/lib/types/auth";
 import { axiosInstance } from "@/lib/utils/axios";
 import { endpoints } from "@/lib/config/endpoints";
+import { Button } from "@/view/components/elements";
+import Alert from "@/view/components/elements/alert";
 import { updateAccessToken } from "@/lib/actions/auth";
 import RHFOTP from "@/view/components/rhf-hooks/rhf-otp";
 
@@ -119,17 +119,14 @@ export default function AuthOtp({
 
   return (
     <div className="flex flex-col gap-12">
-      <p className="text-gray-500">{t("Pages.Auth.otp_sent")}</p>
+      <p className="text-secondary">{t("Pages.Auth.otp_sent")}</p>
+
       <FormProvider {...methods}>
         <form onSubmit={onSubmit}>
           <div className="flex flex-col gap-6">
-            {error && (
-              <div className="rounded border border-red-200 bg-red-100 px-4 py-2 text-red-700">
-                {error}
-              </div>
-            )}
+            {error && <Alert variant="error">{error}</Alert>}
 
-            <p className="text-base text-gray-500">
+            <p className="text-secondary text-base">
               {t("Pages.Auth.otp_sent")}
             </p>
 
@@ -139,7 +136,8 @@ export default function AuthOtp({
               type="button"
               onClick={handleResendOTP}
               disabled={!canResend}
-              className="text-primary-600 self-end hover:underline disabled:pointer-events-none disabled:opacity-50"
+              style={{ all: "unset" }}
+              className="!text-primary !ms-auto !block not-disabled:!cursor-pointer not-disabled:hover:!underline disabled:!text-gray-500"
             >
               {canResend
                 ? t("Global.Action.resend_otp")
@@ -148,13 +146,9 @@ export default function AuthOtp({
                   })}
             </button>
 
-            <button
-              type="submit"
-              className="bg-primary-600 hover:bg-primary-700 w-full rounded-lg py-3 text-lg font-semibold text-white transition disabled:opacity-50"
-              disabled={isSubmitting}
-            >
+            <Button type="submit" disabled={isSubmitting} fullWidth>
               {t("Global.Action.verify")}
-            </button>
+            </Button>
           </div>
         </form>
       </FormProvider>

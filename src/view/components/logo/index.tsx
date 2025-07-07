@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+
 import { cn } from "@/lib/utils/style-functions/cn";
 
 const logo = (scale: number) => ({

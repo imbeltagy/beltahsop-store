@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useDropzone } from "react-dropzone";
@@ -7,6 +8,7 @@ import { useDropzone } from "react-dropzone";
 import { Icons } from "@/lib/config/icons";
 import { fSize } from "@/lib/utils/format";
 import { MAX_FILE_SIZE } from "@/lib/config/upload";
+import { cn } from "@/lib/utils/style-functions/cn";
 import { FileType, FileVariant } from "@/lib/types/upload";
 
 import { Iconify } from "../iconify";
@@ -26,6 +28,7 @@ export type UploadMultiBoxProps = {
   onReorder?: (newFiles: (File | string)[]) => void;
   icon?: string;
   draggable?: boolean;
+  className?: string;
 } & (
   | {
       acceptedTypes?: FileType[]; // e.g., ['image/png', 'application/pdf']
@@ -45,6 +48,7 @@ export default function UploadMultiBox({
   onReorder,
   icon,
   draggable = false,
+  className,
   ...props
 }: UploadMultiBoxProps) {
   const t = useTranslations();
@@ -151,12 +155,13 @@ export default function UploadMultiBox({
   }, [errorMessage, helperText, acceptedTypes, t]);
 
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full", className)}>
       <UploadBoxWrapper
         disabled={disabled}
         error={hasError}
         dragActive={isDragActive}
         {...getRootProps()}
+        className="min-h-full"
       >
         <input {...getInputProps()} />
 
@@ -252,10 +257,11 @@ function Preview({
       } transition-all duration-200 ${draggable ? "cursor-grab" : "cursor-default"} group`}
       style={{ borderColor: isDragging ? "#888" : "#e5e7eb" }}
     >
-      <img
+      <Image
         src={preview}
         alt="preview"
-        className="pointer-events-none h-full w-full object-cover"
+        className="pointer-events-none object-cover"
+        fill
       />
       <button
         type="button"

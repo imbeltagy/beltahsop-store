@@ -6,11 +6,13 @@ import { useDropzone } from "react-dropzone";
 
 import { fSize } from "@/lib/utils/format";
 import { MAX_FILE_SIZE } from "@/lib/config/upload";
+import { cn } from "@/lib/utils/style-functions/cn";
 import { FileType, FileVariant } from "@/lib/types/upload";
 
 import { UploadBoxWrapper } from "./styles";
 import SimplePlaceholder from "../placeholder/simple";
 import { getVariantFileTypes, getVariantUploadIcon } from "./utils";
+import Image from "next/image";
 
 type UploadBoxProps = {
   file?: File | string;
@@ -20,6 +22,7 @@ type UploadBoxProps = {
   maxSize?: number; // in bytes
   onDrop: (acceptedFiles: File[]) => void;
   icon?: string;
+  className?: string;
 } & (
   | {
       acceptedTypes?: FileType[]; // e.g., ['image/png', 'application/pdf']
@@ -35,6 +38,7 @@ export default function UploadBox({
   maxSize = MAX_FILE_SIZE,
   onDrop,
   icon,
+  className,
   ...props
 }: UploadBoxProps) {
   const t = useTranslations("Global.Helper");
@@ -114,12 +118,13 @@ export default function UploadBox({
   }, [errorMessage, helperText, acceptedTypes, t]);
 
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full", className)}>
       <UploadBoxWrapper
         disabled={disabled}
         error={hasError}
         dragActive={isDragActive}
         {...getRootProps()}
+        className="min-h-full"
       >
         <input {...getInputProps()} />
 
@@ -156,20 +161,17 @@ export default function UploadBox({
 function Preview({ file }: { file?: File | string }) {
   if (typeof file === "string" && file.trim()) {
     return (
-      <img
-        alt="preview"
-        src={file}
-        className="h-full w-full rounded object-cover"
-      />
+      <Image alt="preview" src={file} className="rounded object-cover" fill />
     );
   }
 
   if (file instanceof File) {
     return (
-      <img
+      <Image
         alt="preview"
         src={URL.createObjectURL(file)}
-        className="h-full w-full rounded object-cover"
+        className="rounded object-cover"
+        fill
       />
     );
   }

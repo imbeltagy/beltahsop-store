@@ -9,6 +9,7 @@ import { OTPPurpose } from "@/lib/types/auth";
 
 import AuthOtp from "../auth-otp";
 import NewPassword from "../new-password";
+import AuthHeading from "../../auth-headding";
 import VerifyPassword from "../verify-password";
 
 export default function ResetPasswordView() {
@@ -27,9 +28,7 @@ export default function ResetPasswordView() {
 
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-3xl font-bold">
-        {t("Pages.Auth.reset_password_title")}
-      </h1>
+      <AuthHeading title={t("Pages.Auth.reset_password_title")} />
 
       {steps[currentStep]}
     </div>

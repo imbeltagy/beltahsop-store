@@ -1,32 +1,48 @@
 @import "tailwindcss";
-@plugin "flowbite-react/plugin/tailwindcss";
+/* @plugin "flowbite-react/plugin/tailwindcss"; */
+/* @plugin "@tailwindcss/typography"; */
+@plugin "tailwindcss-dir";
 @source "../../../.flowbite-react/class-list.json";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* Palette colors */
-  --primary-light: #5d82e7;
-  --primary-main: #4c66af;
-  --primary-dark: #35477b;
-  --primary-contrast-text: #fff;
-
-  --background-paper: #fff;
-  --background-default: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #637381;
-  --text-disabled: #dddee3;
-
-  --divider: rgba(58, 53, 65, 0.1);
-}
+/* force dark mode to used class */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #000;
+
+  /* Palette colors */
+  --color-primary-light: #6b8ef2;
+  --color-primary: #4c66af;
+  --color-primary-dark: #3a518f;
+  --color-primary-darker: #35477b;
+
+  /* Text colors */
+  --color-dark: #111827;
+  --color-secondary: #637381;
+  --color-disabled: #dddee3;
+  --color-divider: oklch(92.8% 0.006 264.531);
+}
+
+@layer components {
+  .icon-btn {
+    display: inline-grid;
+    height: theme(spacing.10);
+    width: theme(spacing.10);
+    place-items: center;
+    border-radius: var(--radius-md);
+    padding: theme(spacing.1);
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-divider);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 calc(var(--spacing) / 2) var(--color-secondary);
+    }
+  }
 }
 
 @font-face {
@@ -55,4 +71,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: var(--color-primary);
+}
+a:hover {
+  text-decoration: underline;
 }

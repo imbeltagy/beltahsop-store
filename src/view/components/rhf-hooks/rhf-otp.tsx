@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import { Label, TextInput } from "flowbite-react";
 import { Controller, useFormContext } from "react-hook-form";
-import { TextInput, Label } from "flowbite-react";
 
 interface Props {
   name: string;

@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils/style-functions/cn";
 import { ReactNode } from "react";
+
+import { cn } from "@/lib/utils/style-functions/cn";
 
 type ListItemAction = { link?: string } | { onClick?: () => void };
 
@@ -13,9 +14,9 @@ interface Props {
   items: ListItem[];
 }
 
-export function List({ items }: Props) {
+export default function List({ items }: Props) {
   return (
-    <ul className="bg-default flex max-h-48 min-w-36 flex-col gap-1 overflow-auto rounded-md p-1 shadow-md ring-4 ring-gray-50 dark:ring-gray-700">
+    <ul className="bg-background ring-divider flex max-h-48 min-w-36 flex-col gap-1 overflow-auto rounded-md p-1 shadow-md ring-2">
       {items.map((item) => (
         <li key={item.text}>
           {"link" in item ? (

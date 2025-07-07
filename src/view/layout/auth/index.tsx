@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Card } from "flowbite-react";
+
 import Logo from "@/view/components/logo";
 import { paths } from "@/lib/config/paths";
 import { LocalePopover } from "@/view/components/locale-popover";
@@ -36,13 +38,7 @@ export default function AuthLayout({
   );
 
   return (
-    <div
-      className="relative isolate grid min-h-full items-center py-4 md:py-12"
-      style={{
-        position: "relative",
-        isolation: "isolate",
-      }}
-    >
+    <div className="relative isolate grid min-h-full items-center py-4 md:py-12">
       {/* Background shape */}
       <div
         className="absolute inset-0 z-[-1]"
@@ -52,20 +48,19 @@ export default function AuthLayout({
         }}
       />
       {renderBgImg}
-      <div className="container mx-auto">
-        <div className="mx-auto w-fit rounded-lg bg-white shadow">
-          <div className="p-6">
-            <div className="mb-1 flex flex-row items-center justify-between gap-1">
-              <Logo
-                full
-                className="-mb-3 w-fit max-w-[min(100%,200px)]"
-                href={paths.home}
-              />
-              <LocalePopover />
-            </div>
-            {children}
+
+      <div className="mt container mx-auto">
+        <Card className="mx-auto w-fit">
+          <div className="mb-5 flex flex-row items-center justify-between gap-1">
+            <Logo
+              full
+              className="-mb-3 w-fit max-w-[min(100%,200px)]"
+              href={paths.home}
+            />
+            <LocalePopover />
           </div>
-        </div>
+          {children}
+        </Card>
       </div>
     </div>
   );

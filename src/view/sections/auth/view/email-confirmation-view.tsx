@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-// Removed MUI imports
-// import { Stack, Alert, Typography } from '@mui/material';
 
 import { OTPPurpose } from "@/lib/types/auth";
 import { pathAfterLogin } from "@/lib/config/paths";
-// import RouterLink from '@/view/components/router-link';
 
 import AuthOtp from "../auth-otp";
+import AuthHeading from "../../auth-headding";
 
 export default function EmailConfirmationView() {
   const t = useTranslations("Pages.Auth");
@@ -18,12 +16,10 @@ export default function EmailConfirmationView() {
   if (isSuccess) {
     return (
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold">
-          {t("email_confirmation_success_title")}
-        </h1>
-        <p className="mb-5 text-base text-gray-500">
-          {t("email_confirmation_success_subtitle")}
-        </p>
+        <AuthHeading
+          title={t("email_confirmation_success_title")}
+          subtitle={t("email_confirmation_success_subtitle")}
+        />
 
         <div className="rounded border border-green-200 bg-green-100 px-4 py-2 text-center text-green-700">
           {t.rich("email_confirmed", {
@@ -43,10 +39,10 @@ export default function EmailConfirmationView() {
 
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="text-3xl font-bold">{t("email_confirmation_title")}</h1>
-      <p className="mb-5 text-base text-gray-500">
-        {t("email_confirmation_subtitle")}
-      </p>
+      <AuthHeading
+        title={t("email_confirmation_title")}
+        subtitle={t("email_confirmation_subtitle")}
+      />
 
       <AuthOtp
         purpose={OTPPurpose.EmailConfirmation}

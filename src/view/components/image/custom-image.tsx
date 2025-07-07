@@ -1,7 +1,9 @@
 import React from "react";
-import BrokenImage from "./broken-image";
-import ImageLink from "./image-link";
+
 import { cn } from "@/lib/utils/style-functions/cn";
+
+import ImageLink from "./image-link";
+import BrokenImage from "./broken-image";
 
 interface Props {
   src: string;

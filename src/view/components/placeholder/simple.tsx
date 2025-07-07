@@ -1,5 +1,6 @@
-import { Iconify } from "../iconify";
 import React from "react";
+
+import { Iconify } from "../iconify";
 
 export default function SimplePlaceholder({
   icon,

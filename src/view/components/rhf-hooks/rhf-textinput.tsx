@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { TextInput, Button, TextInputProps } from "flowbite-react";
+import { Button, TextInput, TextInputProps } from "flowbite-react";
 
 import { Icons } from "@/lib/config/icons";
+import { cn } from "@/lib/utils/style-functions/cn";
 
 import { Iconify } from "../iconify";
-import { cn } from "@/lib/utils/style-functions/cn";
 
 interface Props extends TextInputProps {
   name: string;
@@ -41,20 +41,20 @@ export default function RHFTextInput({
               {...props}
               color={error ? "failure" : undefined}
               type={type}
-              className={error ? "pr-10" : ""}
             />
             {inputType === "password" && !!field.value && (
               <Button
                 type="button"
                 size="xs"
-                color="gray"
-                className="absolute top-1/2 right-2 h-6 w-6 min-w-0 -translate-y-1/2 p-1"
+                color="alternative"
+                className="absolute top-1/2 right-2 -translate-y-1/2 p-1"
                 onClick={() =>
                   setType(type === "password" ? "text" : "password")
                 }
               >
                 <Iconify
                   icon={type === "password" ? Icons.EYE : Icons.EYE_OFF}
+                  className="h-5 w-5"
                 />
               </Button>
             )}

@@ -1,7 +1,7 @@
 "use client";
 
+import { Label, ToggleSwitch } from "flowbite-react";
 import { Controller, useFormContext } from "react-hook-form";
-import { ToggleSwitch, Label } from "flowbite-react";
 
 interface Props {
   name: string;

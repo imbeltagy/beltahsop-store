@@ -1,7 +1,8 @@
 "use client";
 
-import { Controller, useFormContext } from "react-hook-form";
 import { Label } from "flowbite-react";
+import { Controller, useFormContext } from "react-hook-form";
+
 import { FileType, FileVariant } from "@/lib/types/upload";
 
 import UploadBox from "../upload/upload-box";
