@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
@@ -12,7 +13,6 @@ import { FileType, FileVariant } from "@/lib/types/upload";
 import { UploadBoxWrapper } from "./styles";
 import SimplePlaceholder from "../placeholder/simple";
 import { getVariantFileTypes, getVariantUploadIcon } from "./utils";
-import Image from "next/image";
 
 type UploadBoxProps = {
   file?: File | string;
