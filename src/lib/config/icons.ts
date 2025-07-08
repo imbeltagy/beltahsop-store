@@ -20,6 +20,9 @@ export const enum Icons {
   CHECK = "ic:round-check",
   SAD = "mingcute:sad-fill",
   CART = "mdi:cart",
+  HEART = "solar:heart-bold",
+  PLUS = "tabler:plus",
+  MINUS = "typcn:minus",
 }
 
 export const enum NavbarIcons {}

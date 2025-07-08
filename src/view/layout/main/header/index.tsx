@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header
-      className="bg-default fixed inset-x-0 top-0 z-50 shadow-lg"
+      className="bg-background fixed inset-x-0 top-0 z-50 shadow-lg"
       style={{ height: `${HEADER_HEIGHT}px` }}
     >
       <div className="relative mx-auto flex h-full w-full items-center justify-between gap-4 p-4 lg:container">

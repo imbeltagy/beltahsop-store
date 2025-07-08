@@ -1,11 +1,17 @@
+import { Product } from "@/lib/types/api/products";
+
 import Hero from "../hero";
+import NewestProducts from "../newest-products";
 
-interface Props {}
+interface Props {
+  products: Product[];
+}
 
-export default function HomeView({}: Props) {
+export default function HomeView({ products }: Props) {
   return (
     <div>
       <Hero />
+      <NewestProducts products={products} />
     </div>
   );
 }

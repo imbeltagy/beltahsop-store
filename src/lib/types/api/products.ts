@@ -3,15 +3,15 @@ export interface Product {
   coverList: string[];
   rating: number;
   reviews: number;
-  labels: any[];
-  tags: any[];
+  labels: Label[];
+  tags: { _id: string; name: string }[];
   quantity: number;
   disabled: boolean;
   price: number;
   finalPrice: number;
   name: string;
   description: string;
-  subcategory?: Brand;
+  subcategory?: { _id: string; name: string };
   brand?: Brand;
 }
 
@@ -27,4 +27,10 @@ export interface Brand {
   updatedAt: Date;
   createdAt?: Date;
   category?: null | string;
+}
+
+export interface Label {
+  _id: string;
+  color: string;
+  name: string;
 }
