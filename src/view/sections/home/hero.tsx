@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import { Container } from "@/view/components/elements";
+import { Button, Container } from "@/view/components/elements";
 
 export default function Hero() {
   return (
@@ -42,12 +41,9 @@ function Text() {
 
       {/* Call For Action */}
       <div className="flex flex-wrap items-center gap-2 max-md:justify-center">
-        <Link
-          href="#"
-          className="bg-primary hover:bg-primary-dark active:bg-primary inline-block shrink-0 rounded px-8 py-3 text-center font-semibold text-white! no-underline! transition-colors"
-        >
+        <Button href="#" size="large">
           {t("cta")}
-        </Link>
+        </Button>
         <p className="text-primary text-sm">
           {t("SubText.line1")}
           <br /> {t("SubText.line2")}

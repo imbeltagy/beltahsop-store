@@ -112,11 +112,12 @@ export default function Button({
   );
 }
 
-const baseClasses = "transition-all duration-300 cursor-pointer w-fit";
+const baseClasses =
+  "transition-all duration-300 cursor-pointer w-fit no-underline!";
 
 const variantClasses = {
   contained: {
-    primary: "bg-primary text-white",
+    primary: "bg-primary text-white!",
   },
 };
 

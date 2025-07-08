@@ -19,6 +19,7 @@ export const enum Icons {
   UNLINK = "mynaui:unlink",
   CHECK = "ic:round-check",
   SAD = "mingcute:sad-fill",
+  CART = "mdi:cart",
 }
 
 export const enum NavbarIcons {}

@@ -46,13 +46,10 @@ export function LocalePopover() {
       }
     >
       <button
-        className="icon-btn h-9 w-9 p-2"
+        className="icon-btn"
         onClick={() => setIsPopoverOpen((prev) => !prev)}
       >
-        <Iconify
-          icon={localesSettings[locale as LocaleType].icon}
-          className="h-full w-full"
-        />
+        <Iconify icon={localesSettings[locale as LocaleType].icon} />
       </button>
     </Popover>
   );

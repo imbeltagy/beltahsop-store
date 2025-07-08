@@ -14,7 +14,14 @@
     }
   },
   "Navigation": {
-    "home": "Home"
+    "home": "Home",
+    "store": "Store",
+    "blog": "Blog",
+    "FAQs": "FAQs",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile"
   },
   "Global": {
     "Validation": {

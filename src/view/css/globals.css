@@ -18,9 +18,9 @@
 
   /* Text colors */
   --color-dark: #111827;
-  --color-secondary: #637381;
+  --color-secondary: #6b7280;
   --color-disabled: #dddee3;
-  --color-divider: oklch(92.8% 0.006 264.531);
+  --color-divider: #e5e7eb;
 
   /* Fonts */
   --font-cairo: "Cairo", Arial, Helvetica, sans-serif;
