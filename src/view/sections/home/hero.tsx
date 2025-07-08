@@ -32,7 +32,7 @@ function Text() {
 
   return (
     <div className="py-sectionV-md relative z-10 col-span-7 grid gap-4 max-md:justify-center">
-      <h1 className="text-dark font-special text-3xl max-md:text-center max-md:text-balance md:text-4xl lg:text-5xl">
+      <h1 className="text-dark font-special-en ar:font-special-ar text-3xl max-md:text-center max-md:text-balance md:text-4xl lg:text-5xl">
         {t("headline")}
       </h1>
       <p className="max-md:text-center max-md:text-balance md:text-lg lg:text-xl">

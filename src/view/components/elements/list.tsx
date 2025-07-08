@@ -27,7 +27,7 @@ export default function List({ items }: Props) {
                 item.className,
               )}
             >
-              {item.icon}
+              <span>{item.icon}</span>
               <span>{item.text}</span>
             </a>
           ) : null}
@@ -39,7 +39,7 @@ export default function List({ items }: Props) {
                 item.className,
               )}
             >
-              {item.icon}
+              <span>{item.icon}</span>
               <span>{item.text}</span>
             </button>
           ) : null}

@@ -38,17 +38,8 @@
   --spacing-sectionH-sm: theme(spacing.4);
 }
 
-@variant in-rtl {
-  @theme inline {
-    --font-special: var(--font-special-ar);
-  }
-}
-
-@variant in-ltr {
-  @theme inline {
-    --font-special: var(--font-special-en);
-  }
-}
+@custom-variant ar ([lang="ar"] &);
+@custom-variant en ([lang="en"] &);
 
 body {
   background: var(--background);

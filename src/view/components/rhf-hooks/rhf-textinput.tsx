@@ -47,7 +47,7 @@ export default function RHFTextInput({
                 type="button"
                 size="xs"
                 color="alternative"
-                className="absolute top-1/2 right-2 -translate-y-1/2 p-1"
+                className="absolute end-2 top-1/2 -translate-y-1/2 p-1"
                 onClick={() =>
                   setType(type === "password" ? "text" : "password")
                 }
