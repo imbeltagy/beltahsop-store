@@ -10,7 +10,7 @@ export default function Container({
   return (
     <div
       className={cn(
-        "container mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl",
+        "px-sectionH-sm container mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl",
         className,
       )}
     >

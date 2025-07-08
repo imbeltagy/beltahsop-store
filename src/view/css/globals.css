@@ -30,6 +30,12 @@
   --font-special-ar: var(--font-lalezar);
   --font-special-en: var(--font-leckerli-one);
   --font-primary: var(--font-cairo);
+
+  /* Spacing */
+  --spacing-sectionV-sm: theme(spacing.8);
+  --spacing-sectionV-md: theme(spacing.24);
+
+  --spacing-sectionH-sm: theme(spacing.4);
 }
 
 @variant in-rtl {

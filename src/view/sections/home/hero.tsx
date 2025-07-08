@@ -11,7 +11,7 @@ export default function Hero() {
         <Text />
 
         {/* Image */}
-        <div className="bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full md:pt-24">
+        <div className="md:pt-sectionV-md bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full">
           <Image
             className="mx-auto"
             src="/assets/images/home/hero.webp"
@@ -32,7 +32,7 @@ function Text() {
   const t = useTranslations("Pages.Home.Hero");
 
   return (
-    <div className="relative z-10 col-span-7 grid gap-4 py-24 max-md:justify-center">
+    <div className="py-sectionV-md relative z-10 col-span-7 grid gap-4 max-md:justify-center">
       <h1 className="text-dark font-special text-3xl max-md:text-center max-md:text-balance md:text-4xl lg:text-5xl">
         {t("headline")}
       </h1>
