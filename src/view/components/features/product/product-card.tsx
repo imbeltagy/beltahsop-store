@@ -86,13 +86,18 @@ export default function ProductCard(product: Product) {
 
   const renderLinkOverlay = (
     <Link
-      className="absolute inset-0 -z-10"
+      className="hover-overlay absolute inset-0 -z-10"
       href={`${paths.store}/${product._id}`}
     />
   );
 
   return (
-    <div className="group/card bg-background relative isolate flex flex-col overflow-hidden rounded-md p-4 shadow">
+    <div
+      className={cn(
+        "group/card bg-background relative isolate flex flex-col overflow-hidden rounded-md p-4 shadow",
+        "has-[.hover-overlay:hover]:shadow-primary transition-shadow duration-300 has-[.hover-overlay:hover]:shadow-2xl",
+      )}
+    >
       {renderLinkOverlay}
       {/* Img Container */}
       <div className="relative aspect-square w-full overflow-hidden rounded-md">
@@ -105,6 +110,7 @@ export default function ProductCard(product: Product) {
         />
         {renderPrice}
         {renderLabels}
+        <div className="absolute inset-0 z-10">{renderLinkOverlay}</div>
       </div>
 
       {/* Divider */}
@@ -132,12 +138,14 @@ export default function ProductCard(product: Product) {
         ))}
       </div>
 
-      <div className="grow" />
+      {/* Empty Space to set Actions at bottom */}
+      <div className="relative -z-20 grow" />
 
-      <div className="mt-6 flex justify-between gap-2">
+      <div className="relative isolate mt-6 flex justify-between gap-2">
         <Button startIcon={Icons.HEART} variant="contained" />
 
         <IncreamentButton value={10} onChange={() => {}} />
+        {renderLinkOverlay}
       </div>
     </div>
   );
