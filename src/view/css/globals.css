@@ -8,6 +8,7 @@
 
 @theme inline {
   --color-background: #ffffff;
+  --color-neutral: #eee;
   --color-foreground: #000;
 
   /* Palette colors */
@@ -36,6 +37,8 @@
   --spacing-sectionV-md: theme(spacing.24);
 
   --spacing-sectionH-sm: theme(spacing.4);
+
+  --breakpoint-xs: 25rem;
 }
 
 @custom-variant ar ([lang="ar"] &);

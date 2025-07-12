@@ -121,9 +121,13 @@
           "line2": "purchased this product!"
         }
       },
-      "NewestShoes": {
-        "headding": "Newest Shoes",
-        "subheadding": "Checkout The Latest Shoes"
+      "NewestProducts": {
+        "headding": "Newest Products",
+        "subheadding": "Checkout The Latest Products"
+      },
+      "Categories": {
+        "headding": "Categories",
+        "subheadding": "Browse By Category"
       }
     }
   }

@@ -121,9 +121,13 @@
           "line2": "قاموا بشرائهذا المنتج!"
         }
       },
-      "NewestShoes": {
-        "headding": "أحدث الأحذية",
-        "subheadding": "تحقق من أحدث الأحذية"
+      "NewestProducts": {
+        "headding": "أحدث المنتجات",
+        "subheadding": "تحقق من أحدث المنتجات"
+      },
+      "Categories": {
+        "headding": "التصنيفات",
+        "subheadding": "تصفح بواسطة التصنيف"
       }
     }
   }

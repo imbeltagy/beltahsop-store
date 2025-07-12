@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function NewestProducts({ products }: Props) {
-  const t = useTranslations("Pages.Home.NewestShoes");
+  const t = useTranslations("Pages.Home.NewestProducts");
 
   return (
     <section className="bg-[#F9FAFB]">

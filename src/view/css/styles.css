@@ -25,12 +25,12 @@
       width: 100%;
     }
   }
-}
 
-a {
-  color: var(--color-primary);
+  a {
+    color: var(--color-primary);
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

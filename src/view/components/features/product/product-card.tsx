@@ -95,7 +95,7 @@ export default function ProductCard(product: Product) {
     <div
       className={cn(
         "group/card bg-background relative isolate flex flex-col overflow-hidden rounded-md p-4 shadow",
-        "has-[.hover-overlay:hover]:shadow-primary transition-shadow duration-300 has-[.hover-overlay:hover]:shadow-2xl",
+        "transition-shadow duration-300 has-[.hover-overlay:hover]:shadow-2xl",
       )}
     >
       {renderLinkOverlay}
