@@ -3,17 +3,17 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-export default function Error({ error }: { error: Error }) {
-  const t = useTranslations("Pages.Error");
+export default function NotFound() {
+  const t = useTranslations("Pages.NotFound");
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md text-center">
-        {/* Error Illustration */}
+        {/* 404 Illustration */}
         <div className="mb-8">
-          <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-red-100">
+          <div className="mx-auto mb-4 flex h-32 w-32 items-center justify-center rounded-full bg-blue-100">
             <svg
-              className="h-16 w-16 text-red-500"
+              className="h-16 w-16 text-blue-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -23,28 +23,21 @@ export default function Error({ error }: { error: Error }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+                d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
           </div>
         </div>
 
+        {/* 404 Number */}
+        <div className="mb-6">
+          <h1 className="mb-4 text-8xl font-bold text-gray-300">404</h1>
+        </div>
+
         {/* Error Message */}
-        <h1 className="mb-4 text-3xl font-bold text-gray-900">{t("title")}</h1>
+        <h2 className="mb-4 text-3xl font-bold text-gray-900">{t("title")}</h2>
 
-        <p className="mb-6 text-gray-600">{error.message || t("message")}</p>
-
-        {/* Error Details (for development) */}
-        {process.env.NODE_ENV === "development" && (
-          <details className="mb-6">
-            <summary className="cursor-pointer text-start text-sm text-gray-500 hover:text-gray-700">
-              {t("error_details")}
-            </summary>
-            <pre className="mt-2 overflow-auto rounded bg-gray-100 p-3 text-left text-xs text-gray-700">
-              {error.stack}
-            </pre>
-          </details>
-        )}
+        <p className="mb-8 text-gray-600">{t("message")}</p>
 
         {/* Action Buttons */}
         <div className="space-y-3 space-x-3">
@@ -70,7 +63,7 @@ export default function Error({ error }: { error: Error }) {
           </Link>
 
           <button
-            onClick={() => window.location.reload()}
+            onClick={() => window.history.back()}
             className="inline-flex cursor-pointer items-center rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
           >
             <svg
@@ -84,11 +77,31 @@ export default function Error({ error }: { error: Error }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            {t("try_again")}
+            {t("go_back")}
           </button>
+        </div>
+
+        {/* Additional Help */}
+        <div className="mt-8 border-t border-gray-200 pt-6">
+          <p className="mb-3 text-sm text-gray-500">{t("help_text")}</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            <Link
+              href="/store"
+              className="text-sm font-medium text-blue-600 transition-colors hover:text-blue-800"
+            >
+              {t("browse_store")}
+            </Link>
+            <span className="text-gray-400">•</span>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-blue-600 transition-colors hover:text-blue-800"
+            >
+              {t("contact_support")}
+            </Link>
+          </div>
         </div>
       </div>
     </div>
