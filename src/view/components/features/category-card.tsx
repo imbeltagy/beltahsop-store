@@ -20,6 +20,8 @@ export default function CategoryCard({
           alt={name}
           fill
           className="block h-full w-full object-cover"
+          sizes="(max-width: 640px) 100vw, 200px"
+          loading="lazy"
         />
       </Link>
 
