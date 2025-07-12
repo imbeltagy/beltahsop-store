@@ -21,7 +21,27 @@
     "contact": "Contact",
     "login": "Login",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "about": "About",
+    "help_center": "Help Center",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "size_guide": "Size Guide",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "cookie_policy": "Cookie Policy"
+  },
+  "Footer": {
+    "description": "Discover unique footwear that tells your story. Quality craftsmanship meets contemporary design for the modern individual.",
+    "quick_links": "Quick Links",
+    "support": "Support",
+    "stay_updated": "Stay Updated",
+    "newsletter_description": "Subscribe to our newsletter for the latest updates and exclusive offers.",
+    "email_placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "copyright": "© {year} Beltahop. All rights reserved.",
+    "created_by_text": "Created by",
+    "creator_name": "Mohammad Beltagy"
   },
   "Global": {
     "Validation": {
@@ -128,6 +148,9 @@
       "Categories": {
         "headding": "Categories",
         "subheadding": "Browse By Category"
+      },
+      "Testimonials": {
+        "headding": "What Our Clients Say"
       }
     }
   }

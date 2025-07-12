@@ -21,7 +21,27 @@
     "contact": "تواصل معنا",
     "login": "تسجيل الدخول",
     "logout": "تسجيل خروج",
-    "profile": "الحساب"
+    "profile": "الحساب",
+    "about": "حول",
+    "help_center": "مركز المساعدة",
+    "shipping": "الشحن",
+    "returns": "الإرجاع",
+    "size_guide": "دليل المقاسات",
+    "privacy_policy": "سياسة الخصوصية",
+    "terms_of_service": "شروط الخدمة",
+    "cookie_policy": "سياسة ملفات تعريف الارتباط"
+  },
+  "Footer": {
+    "description": "اكتشف أحذية فريدة تحكي قصتك. الحرفية المتميزة تلتقي بالتصميم المعاصر للفرد العصري.",
+    "quick_links": "روابط سريعة",
+    "support": "الدعم",
+    "stay_updated": "ابق على اطلاع",
+    "newsletter_description": "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض الحصرية.",
+    "email_placeholder": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشتراك",
+    "copyright": "© {year} Beltahop. جميع الحقوق محفوظة.",
+    "created_by_text": "تم التطوير بواسطة",
+    "creator_name": "Mohammad Beltagy"
   },
   "Global": {
     "Validation": {
@@ -128,6 +148,9 @@
       "Categories": {
         "headding": "التصنيفات",
         "subheadding": "تصفح بواسطة التصنيف"
+      },
+      "Testimonials": {
+        "headding": "آراء عملائنا"
       }
     }
   }

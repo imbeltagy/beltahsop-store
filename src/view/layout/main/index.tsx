@@ -1,4 +1,5 @@
 import Header from "./header";
+import Footer from "./footer";
 import { HEADER_HEIGHT } from "./config";
 
 export default function MainLayout({
@@ -12,6 +13,8 @@ export default function MainLayout({
       <div style={{ height: `${HEADER_HEIGHT}px` }} />
 
       {children}
+
+      <Footer />
     </main>
   );
 }
