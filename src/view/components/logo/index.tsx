@@ -37,15 +37,22 @@ export default function Logo({
 
   if (href) {
     return (
-      <Link href={href} className={containerClass} style={style}>
-        <Image alt="logo" {...img} style={{ maxWidth: "100%" }} />
+      <Link
+        href={href}
+        className={containerClass}
+        style={{ aspectRatio: img.width / img.height, ...style }}
+      >
+        <Image alt="beltashop" {...img} style={{ maxWidth: "100%" }} />
       </Link>
     );
   }
 
   return (
-    <div className={containerClass} style={style}>
-      <Image alt="logo" {...img} style={{ maxWidth: "100%" }} />
+    <div
+      className={containerClass}
+      style={{ aspectRatio: img.width / img.height, ...style }}
+    >
+      <Image alt="beltashop" {...img} style={{ maxWidth: "100%" }} />
     </div>
   );
 }

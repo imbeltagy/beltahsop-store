@@ -17,7 +17,7 @@ export default function Header() {
       style={{ height: `${HEADER_HEIGHT}px` }}
     >
       <div className="relative mx-auto flex h-full w-full items-center justify-between gap-4 p-4 lg:container">
-        <Logo full className="max-h-full [&>*]:max-h-10" href={paths.home} />
+        <Logo full className="h-full w-auto [&>*]:max-h-10" href={paths.home} />
         <Nav isMenuOpen={menuOpen.value} />
         <Actions
           isMenuOpen={menuOpen.value}
