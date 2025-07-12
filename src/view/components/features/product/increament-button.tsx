@@ -60,6 +60,7 @@ export default function IncreamentButton({
         slots.textInput?.className,
       ),
       value: value.toString(),
+      onChange: () => {},
     }),
     [slots.textInput, value],
   );
