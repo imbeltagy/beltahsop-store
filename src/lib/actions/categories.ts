@@ -3,6 +3,7 @@
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
 import { Category } from "../types/api/categories";
+import { ListResponse } from "../types/api/metadata";
 
 export async function getCategories({
   page = 1,
@@ -11,10 +12,7 @@ export async function getCategories({
   page?: number;
   limit?: number;
 }) {
-  const categories = await getData<{
-    metadata: Record<"total" | "page" | "limit", number>;
-    data: Category[];
-  }>("/categories", {
+  const categories = await getData<ListResponse<Category>>("/categories", {
     queries: {
       page,
       limit,

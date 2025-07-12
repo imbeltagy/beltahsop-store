@@ -2,6 +2,7 @@
 
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
+import { ListResponse } from "../types/api/metadata";
 import { SubCategory } from "../types/api/sub-categories";
 
 export async function getSubCategories({
@@ -11,15 +12,15 @@ export async function getSubCategories({
   page?: number;
   limit?: number;
 }) {
-  const subCategories = await getData<{
-    metadata: Record<"total" | "page" | "limit", number>;
-    data: SubCategory[];
-  }>("/subcategories", {
-    queries: {
-      page,
-      limit,
+  const subCategories = await getData<ListResponse<SubCategory>>(
+    "/subcategories",
+    {
+      queries: {
+        page,
+        limit,
+      },
     },
-  });
+  );
 
   if ("error" in subCategories) {
     throw new Error(subCategories.error);

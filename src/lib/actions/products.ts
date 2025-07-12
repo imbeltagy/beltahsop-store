@@ -3,6 +3,7 @@
 import { Product } from "../types/api/products";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
+import { ListResponse } from "../types/api/metadata";
 
 export async function getProducts({
   page = 1,
@@ -11,10 +12,7 @@ export async function getProducts({
   page?: number;
   limit?: number;
 }) {
-  const products = await getData<{
-    metadata: Record<"total" | "page" | "limit", number>;
-    data: Product[];
-  }>("/products", {
+  const products = await getData<ListResponse<Product>>("/products", {
     queries: {
       page,
       limit,
