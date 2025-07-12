@@ -15,7 +15,12 @@ export default function CategoryCard({
         href={paths.category(_id)}
         className="relative block aspect-square h-auto"
       >
-        <Image src={cover} alt={name} fill className="block object-cover" />
+        <Image
+          src={cover}
+          alt={name}
+          fill
+          className="block h-full w-full object-cover"
+        />
       </Link>
 
       <Link
