@@ -1,20 +1,24 @@
-import { Product } from "@/lib/types/api/products";
+import { Suspense } from "react";
 
 import Hero from "../hero";
 import HomeCategories from "../categories";
 import Testimonials from "../testimonials";
 import NewestProducts from "../newest-products";
+import NewestProductsLoading from "../loading/NewestProductsLoading";
+import HomeCategoriesLoading from "../loading/HomeCategoriesLoading";
 
-interface Props {
-  products: Product[];
-}
-
-export default function HomeView({ products }: Props) {
+export default function HomeView() {
   return (
     <div>
       <Hero />
-      <NewestProducts products={products} />
-      <HomeCategories />
+
+      <Suspense fallback={<NewestProductsLoading />}>
+        <NewestProducts />
+      </Suspense>
+      <Suspense fallback={<HomeCategoriesLoading />}>
+        <HomeCategories />
+      </Suspense>
+
       <Testimonials />
     </div>
   );

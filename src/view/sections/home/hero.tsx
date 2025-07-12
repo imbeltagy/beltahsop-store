@@ -17,6 +17,7 @@ export default function Hero() {
             alt="shoe cover picture"
             width={500}
             height={500}
+            priority
           />
 
           {/* overlay */}

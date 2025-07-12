@@ -1,18 +1,17 @@
-"use client";
+import { getTranslations } from "next-intl/server";
 
-import { useTranslations } from "next-intl";
-
-import { Product } from "@/lib/types/api/products";
+import { getProducts } from "@/lib/actions/products";
 import { Container } from "@/view/components/elements";
 import ProductCard from "@/view/components/features/product/product-card";
 import SectionHeadding from "@/view/components/features/section-headding";
 
-interface Props {
-  products: Product[];
-}
+export default async function NewestProducts() {
+  const { data: products } = await getProducts({
+    page: 1,
+    limit: 6,
+  });
 
-export default function NewestProducts({ products }: Props) {
-  const t = useTranslations("Pages.Home.NewestProducts");
+  const t = await getTranslations("Pages.Home.NewestProducts");
 
   return (
     <section className="bg-[#F9FAFB]">
