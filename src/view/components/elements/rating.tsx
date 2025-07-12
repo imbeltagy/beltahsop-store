@@ -13,7 +13,9 @@ export default function Rating({
     <div className={cn("mx-auto flex w-fit gap-1", className)}>
       {[1, 2, 3, 4, 5].map((item) => (
         <div
-          className={cn("w-5 text-orange-500", { "opacity-50": stars < item })}
+          className={cn("w-5 text-orange-500", {
+            "text-gray-400": stars < item,
+          })}
           key={item}
         >
           <Iconify icon="material-symbols:kid-star" width="100%" />
