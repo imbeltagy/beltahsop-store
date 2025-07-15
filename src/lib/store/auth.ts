@@ -1,8 +1,10 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-import { axiosInstance } from '../utils/axios';
-import { endpoints } from '../config/endpoints';
-import { saveSessionCookies, deleteSessionCookies } from '../actions/auth';
+import { axiosInstance } from "../utils/axios";
+import { endpoints } from "../config/endpoints";
+import { useDraftCartStore } from "./draft-cart";
+import { useActiveCartStore } from "./active-cart";
+import { saveSessionCookies, deleteSessionCookies } from "../actions/auth";
 import {
   User,
   AuthState,
@@ -10,7 +12,7 @@ import {
   LoginPayload,
   LoginResponse,
   RegisterPayload,
-} from '../types/auth';
+} from "../types/auth";
 
 const initialState: AuthState = {
   user: null,
@@ -35,8 +37,20 @@ export const useAuthStore = create<AuthStore>()((set) => ({
 
       await saveSessionCookies(loginResponse);
 
-      const { accessToken, accessTokenExpireDate, refreshToken, refreshTokenExpireDate, ...user } =
-        loginResponse;
+      const {
+        accessToken,
+        accessTokenExpireDate,
+        refreshToken,
+        refreshTokenExpireDate,
+        ...user
+      } = loginResponse;
+
+      // move locale storage cart to account
+      // set auth state without waiting carts
+      useActiveCartStore.getState().setIsLoading(false);
+      useActiveCartStore.getState().transferLocalCartToAccount();
+      useDraftCartStore.getState().setIsLoading(false);
+      useDraftCartStore.getState().transferLocalCartToAccount();
 
       set({ isLoading: false, isAuthenticated: true, user });
     } catch (error) {

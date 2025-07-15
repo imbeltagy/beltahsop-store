@@ -7,6 +7,8 @@ export const enum COOKIES_KEYS {
 
 export const enum LOCAL_STORAGE_KEYS {
   NavbarType = "navbarType",
+  ActiveCart = "activeCart",
+  DraftCart = "draftCart",
 }
 
 export const DEFAULT_LIMIT = 10;

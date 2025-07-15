@@ -2,14 +2,18 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useDebounce } from "use-debounce";
+import { useMemo, useState, useEffect, useCallback } from "react";
 
 import { paths } from "@/lib/config/paths";
 import { Icons } from "@/lib/config/icons";
 import { useFormat } from "@/lib/hooks/format";
 import { Product } from "@/lib/types/api/products";
 import { cn } from "@/lib/utils/style-functions/cn";
+import { useBoolean } from "@/lib/hooks/use-boolean";
+import { useDraftCartStore } from "@/lib/store/draft-cart";
 import { useCurrentLocale } from "@/lib/hooks/locale-hooks";
+import { useActiveCartStore } from "@/lib/store/active-cart";
 
 import IncreamentButton from "./increament-button";
 import { Chip, Button, Rating } from "../../elements";
@@ -17,6 +21,65 @@ import { Chip, Button, Rating } from "../../elements";
 export default function ProductCard(product: Product) {
   const { dir } = useCurrentLocale();
   const { formatCurrency } = useFormat();
+
+  const { getProduct, updateProduct } = useActiveCartStore();
+  const { getProduct: getDraftProduct, updateProduct: updateDraftProduct } =
+    useDraftCartStore();
+
+  const [quantity, setQuantity] = useState(
+    getProduct(product._id)?.quantity ?? 0,
+  );
+  const [debouncedQuantity] = useDebounce(quantity, 800);
+
+  const quantityLoading = useBoolean(false);
+  const draftLoading = useBoolean(false);
+
+  useEffect(() => {
+    if (debouncedQuantity === getProduct(product._id)?.quantity) return;
+
+    async function handleUpdate() {
+      quantityLoading.onTrue();
+
+      await updateProduct({
+        productId: product._id,
+        name: product.name,
+        cover: product.coverList[0],
+        itemPrice: product.price,
+        quantity: debouncedQuantity,
+        totalPrice: product.price * debouncedQuantity,
+      });
+
+      quantityLoading.onFalse();
+    }
+
+    handleUpdate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedQuantity]);
+
+  const handleDraft = useCallback(
+    async (action: "add" | "remove") => {
+      draftLoading.onTrue();
+
+      await updateDraftProduct({
+        productId: product._id,
+        name: product.name,
+        cover: product.coverList[0],
+        itemPrice: product.price,
+        quantity: action === "add" ? 1 : 0,
+        totalPrice: action === "add" ? product.price : 0,
+      });
+
+      draftLoading.onFalse();
+    },
+    [
+      draftLoading,
+      product._id,
+      product.coverList,
+      product.name,
+      product.price,
+      updateDraftProduct,
+    ],
+  );
 
   const renderPrice = useMemo(
     () => (
@@ -142,9 +205,32 @@ export default function ProductCard(product: Product) {
       <div className="relative -z-20 grow" />
 
       <div className="relative isolate mt-6 flex justify-between gap-2">
-        <Button startIcon={Icons.HEART} variant="contained" />
+        {getDraftProduct(product._id) ? (
+          <Button
+            startIcon={Icons.TRASH}
+            variant="contained"
+            loading={draftLoading.value}
+            onClick={() => handleDraft("remove")}
+          />
+        ) : (
+          <Button
+            startIcon={Icons.HEART}
+            variant="contained"
+            loading={draftLoading.value}
+            onClick={() => handleDraft("add")}
+          />
+        )}
 
-        <IncreamentButton value={10} onChange={() => {}} />
+        <IncreamentButton
+          value={quantity}
+          onChange={(value) => setQuantity(value)}
+          max={product.quantity}
+          slots={{
+            decreseButton: { loading: quantityLoading.value },
+            textInput: { disabled: quantityLoading.value },
+            incrementButton: { loading: quantityLoading.value },
+          }}
+        />
         {renderLinkOverlay}
       </div>
     </div>

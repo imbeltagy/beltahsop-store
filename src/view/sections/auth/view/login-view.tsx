@@ -35,8 +35,8 @@ export default function LoginView() {
       }),
     ),
     defaultValues: {
-      email: "employee@beltashop.com",
-      password: "Employee#1",
+      email: "client@gmail.com",
+      password: "Client#1",
     },
   });
 
