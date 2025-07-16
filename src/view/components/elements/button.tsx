@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { ButtonHTMLAttributes } from "react";
 
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 import { Iconify } from "../iconify";
 import { iconSizeClasses } from "./styles";

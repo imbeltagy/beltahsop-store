@@ -6,8 +6,8 @@ import { useMemo, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
 import { fSize } from "@/lib/utils/format";
+import { cn } from "@/lib/utils/style-functions";
 import { MAX_FILE_SIZE } from "@/lib/config/upload";
-import { cn } from "@/lib/utils/style-functions/cn";
 import { FileType, FileVariant } from "@/lib/types/upload";
 
 import { UploadBoxWrapper } from "./styles";

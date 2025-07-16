@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 interface AlertProps {
   children: ReactNode;

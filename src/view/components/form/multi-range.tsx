@@ -3,7 +3,7 @@
 import { useMemo, useCallback } from "react";
 
 import { useFormat } from "@/lib/hooks/format";
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 interface props {
   name: string;

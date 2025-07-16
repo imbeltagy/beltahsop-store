@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Icons } from "@/lib/config/icons";
+import { cn } from "@/lib/utils/style-functions";
 import { Iconify } from "@/view/components/iconify";
-import { cn } from "@/lib/utils/style-functions/cn";
 
 interface BrokenImageProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;

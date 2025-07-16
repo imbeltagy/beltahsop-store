@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { TextInput, TextInputProps } from "flowbite-react";
 
 import { Icons } from "@/lib/config/icons";
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 import { Button } from "../../elements";
 import { Iconify } from "../../iconify";

@@ -3,8 +3,8 @@
 import Link from "next/link";
 
 import { paths } from "@/lib/config/paths";
+import { cn } from "@/lib/utils/style-functions";
 import { Product } from "@/lib/types/api/products";
-import { cn } from "@/lib/utils/style-functions/cn";
 
 import CartHeader from "./card-header";
 import CardContent from "./card-content";

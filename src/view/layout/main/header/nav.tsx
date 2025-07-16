@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { paths } from "@/lib/config/paths";
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 import { navLinks } from "../config-navigation";
 

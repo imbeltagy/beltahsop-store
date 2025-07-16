@@ -4,9 +4,9 @@ import { useRef, useState, useEffect, useCallback } from "react";
 
 import { Icons } from "@/lib/config/icons";
 import { paths } from "@/lib/config/paths";
+import { cn } from "@/lib/utils/style-functions";
 import { Product } from "@/lib/types/api/products";
 import { Iconify } from "@/view/components/iconify";
-import { cn } from "@/lib/utils/style-functions/cn";
 import { useBoolean } from "@/lib/hooks/use-boolean";
 import { useDraftCartStore } from "@/lib/store/draft-cart";
 import { Button, Tooltip } from "@/view/components/elements";

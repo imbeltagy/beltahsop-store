@@ -5,7 +5,7 @@ import { Controller, useFormContext } from "react-hook-form";
 import { Button, TextInput, TextInputProps } from "flowbite-react";
 
 import { Icons } from "@/lib/config/icons";
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 
 import { Iconify } from "../iconify";
 

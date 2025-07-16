@@ -3,7 +3,7 @@
 import React from "react";
 import Link, { LinkProps } from "next/link";
 
-import { cn } from "@/lib/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions";
 interface ImageLinkProps extends LinkProps {
   className?: string;
   style?: React.CSSProperties;

@@ -4,8 +4,8 @@ import { useMemo } from "react";
 
 import { paths } from "@/lib/config/paths";
 import { useFormat } from "@/lib/hooks/format";
+import { cn } from "@/lib/utils/style-functions";
 import { Product } from "@/lib/types/api/products";
-import { cn } from "@/lib/utils/style-functions/cn";
 import { useCurrentLocale } from "@/lib/hooks/locale-hooks";
 
 export default function CardHeader({ product }: { product: Product }) {
