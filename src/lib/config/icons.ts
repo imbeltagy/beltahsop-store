@@ -23,6 +23,7 @@ export const enum Icons {
   HEART = "solar:heart-bold",
   PLUS = "tabler:plus",
   MINUS = "typcn:minus",
+  BOOKMARK = "material-symbols:bookmark-rounded",
 }
 
 export const enum NavbarIcons {}

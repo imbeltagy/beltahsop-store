@@ -5,6 +5,7 @@ import { Icons } from "@/lib/config/icons";
 import { cn } from "@/lib/utils/style-functions/cn";
 
 import { Button } from "../../elements";
+import { Iconify } from "../../iconify";
 import { ButtonProps } from "../../elements/button";
 
 interface Props {
@@ -19,6 +20,7 @@ interface Props {
     incrementButton?: ButtonProps;
   };
   className?: string;
+  loading?: boolean;
 }
 
 export default function IncreamentButton({
@@ -29,6 +31,7 @@ export default function IncreamentButton({
   max = 100,
   slots = {},
   className = "",
+  loading = false,
 }: Props) {
   const decreseButton = useMemo(
     () => ({
@@ -66,10 +69,28 @@ export default function IncreamentButton({
   );
 
   return (
-    <div className={cn("flex", className)}>
+    <div className={cn("relative flex", className)}>
       <Button {...decreseButton} />
       <TextInput {...textInput} />
       <Button {...incrementButton} />
+
+      {/* Loading overlay */}
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 z-10 rounded-md bg-transparent",
+          loading &&
+            "bg-primary pointer-events-auto transition-colors duration-200",
+        )}
+      />
+      {loading && (
+        <Iconify
+          icon="mdi:loading"
+          className={cn(
+            "h-5 w-5",
+            "absolute top-1/2 left-1/2 z-20 h-6 w-6 -translate-x-1/2 -translate-y-1/2 animate-spin text-white",
+          )}
+        />
+      )}
     </div>
   );
 }

@@ -172,6 +172,11 @@
     "Loading": {
       "title": "Loading",
       "subtitle": "Please wait while we prepare your experience"
+    },
+    "Product": {
+      "add_to_cart": "Add to Cart",
+      "add_to_collection": "Add to Collection",
+      "remove_from_collection": "Remove from Collection"
     }
   }
 }

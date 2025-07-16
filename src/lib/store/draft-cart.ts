@@ -82,20 +82,18 @@ export const useDraftCartStore = create<DraftCartStore>()((set, get) => ({
       localStorage.getItem(LOCAL_STORAGE_KEYS.DraftCart) ?? "[]",
     ) as CartProduct[];
 
-    if (products.length > 0) {
-      const updatedCart = await addMultipleProductsToDraftCart(
-        products.map(({ productId, quantity }) => ({
-          productId,
-          quantity,
-        })),
-      );
+    const updatedCart = await addMultipleProductsToDraftCart(
+      products.map(({ productId, quantity }) => ({
+        productId,
+        quantity,
+      })),
+    );
 
-      set({
-        products: updatedCart.products,
-        isLoading: false,
-      });
+    set({
+      products: updatedCart.products,
+      isLoading: false,
+    });
 
-      localStorage.removeItem(LOCAL_STORAGE_KEYS.DraftCart);
-    }
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.DraftCart);
   },
 }));

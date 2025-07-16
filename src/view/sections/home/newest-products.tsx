@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { getProducts } from "@/lib/actions/products";
 import { Container } from "@/view/components/elements";
-import ProductCard from "@/view/components/features/product/product-card";
+import ProductCard from "@/view/components/features/product/product-cart";
 import SectionHeadding from "@/view/components/features/section-headding";
 
 export default async function NewestProducts() {

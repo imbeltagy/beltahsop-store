@@ -97,21 +97,19 @@ export const useActiveCartStore = create<ActiveCartStore>()((set, get) => ({
       localStorage.getItem(LOCAL_STORAGE_KEYS.ActiveCart) ?? "[]",
     ) as CartProduct[];
 
-    if (products.length > 0) {
-      const updatedCart = await addMultipleProductsToActiveCart(
-        products.map(({ productId, quantity }) => ({
-          productId,
-          quantity,
-        })),
-      );
+    const updatedCart = await addMultipleProductsToActiveCart(
+      products.map(({ productId, quantity }) => ({
+        productId,
+        quantity,
+      })),
+    );
 
-      set({
-        products: updatedCart.products,
-        finalPrice: updatedCart.finalPrice,
-        isLoading: false,
-      });
+    set({
+      products: updatedCart.products,
+      finalPrice: updatedCart.finalPrice,
+      isLoading: false,
+    });
 
-      localStorage.removeItem(LOCAL_STORAGE_KEYS.ActiveCart);
-    }
+    localStorage.removeItem(LOCAL_STORAGE_KEYS.ActiveCart);
   },
 }));

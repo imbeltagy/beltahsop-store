@@ -67,6 +67,7 @@ export const useAuthStore = create<AuthStore>()((set) => ({
   },
   logout: async () => {
     await deleteSessionCookies();
+    window.location.reload();
     set({ user: null, isAuthenticated: false });
   },
 }));

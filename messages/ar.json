@@ -172,6 +172,11 @@
     "Loading": {
       "title": "جاري التحميل",
       "subtitle": "يرجى الانتظار بينما نجهز تجربتك"
+    },
+    "Product": {
+      "add_to_cart": "أضف إلى العربة",
+      "add_to_collection": "أضف إلى المجموعة",
+      "remove_from_collection": "أزل من المجموعة"
     }
   }
 }
