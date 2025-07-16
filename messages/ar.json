@@ -176,7 +176,12 @@
     "Product": {
       "add_to_cart": "أضف إلى العربة",
       "add_to_collection": "أضف إلى المجموعة",
-      "remove_from_collection": "أزل من المجموعة"
+      "remove_from_collection": "أزل من المجموعة",
+      "cart_empty": "سلة التسوق فارغة",
+      "go_to_cart": "الذهاب إلى السلة ({finalPrice})",
+      "increase": "زيادة",
+      "decrease": "إنقاص",
+      "remove": "إزالة"
     }
   }
 }

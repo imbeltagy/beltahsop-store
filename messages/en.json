@@ -176,7 +176,12 @@
     "Product": {
       "add_to_cart": "Add to Cart",
       "add_to_collection": "Add to Collection",
-      "remove_from_collection": "Remove from Collection"
+      "remove_from_collection": "Remove from Collection",
+      "cart_empty": "Your cart is empty",
+      "go_to_cart": "Go to Cart ({finalPrice})",
+      "increase": "Increase",
+      "decrease": "Decrease",
+      "remove": "Remove"
     }
   }
 }

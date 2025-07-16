@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
-
 import { Icons } from "@/lib/config/icons";
 import { Iconify } from "@/view/components/iconify";
 import { LocalePopover } from "@/view/components/locale-popover";
 
+import CartButton from "./cart-button";
 import ProfileButton from "./profile-button";
 
 export default function Actions({
@@ -29,9 +28,7 @@ export default function Actions({
 
       <LocalePopover />
 
-      <Link href="/cart" className="icon-btn">
-        <Iconify icon={Icons.CART} className="h-auto w-full" />
-      </Link>
+      <CartButton />
 
       <ProfileButton />
     </div>
