@@ -12,21 +12,7 @@ export interface Product {
   name: string;
   description: string;
   subcategory?: { _id: string; name: string };
-  brand?: Brand;
-}
-
-export interface Brand {
-  _id: string;
-  nameAr: string;
-  nameEn: string;
-  cover: string;
-  disabled: boolean;
-  products: string[];
-  employeeReadOnly: boolean;
-  __v: number;
-  updatedAt: Date;
-  createdAt?: Date;
-  category?: null | string;
+  brand?: { _id: string; name: string };
 }
 
 export interface Label {

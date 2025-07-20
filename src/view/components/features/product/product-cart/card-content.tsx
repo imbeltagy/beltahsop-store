@@ -13,9 +13,9 @@ export default function CardContent({ product }: { product: Product }) {
       <Rating stars={product.rating} className="ms-0 mt-1 mb-2 w-fit" />
 
       <div className="flex w-fit gap-2">
-        {product.subcategory?.name && (
+        {product.brand?.name && (
           <Chip size="small" className="cursor-pointer">
-            {product.subcategory.name}
+            {product.brand.name}
           </Chip>
         )}
 
