@@ -19,7 +19,7 @@ export default function InitCart() {
 
   useEffect(() => {
     if (isAuthLoading) return;
-
+    console.log(isAuthenticated);
     if (isAuthenticated) {
       (async () => {
         try {
