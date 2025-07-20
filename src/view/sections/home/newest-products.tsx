@@ -8,7 +8,7 @@ import SectionHeadding from "@/view/components/features/section-headding";
 export default async function NewestProducts() {
   const { data: products } = await getProducts({
     page: 1,
-    limit: 6,
+    limit: 8,
   });
 
   const t = await getTranslations("Pages.Home.NewestProducts");
