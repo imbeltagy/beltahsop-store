@@ -25,13 +25,15 @@ export default function InitCart() {
         try {
           const activeCart = await getActiveCart();
           init(activeCart.products, activeCart.finalPrice);
-        } catch (error) {
+        } catch (error: any) {
+          console.log("active cart error", error.message);
           enqueueSnackbar(error as string, { variant: "error" });
         }
         try {
           const draftCart = await getDraftCart();
           initDraftCart(draftCart.products);
-        } catch (error) {
+        } catch (error: any) {
+          console.log("draft cart error", error.message);
           enqueueSnackbar(error as string, { variant: "error" });
         }
       })();
