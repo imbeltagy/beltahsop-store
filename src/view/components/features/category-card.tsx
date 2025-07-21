@@ -1,7 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import { paths } from "@/lib/config/paths";
-import { Link } from "@/lib/i18n/navigation";
 import { Category } from "@/lib/types/api/categories";
 
 export default function CategoryCard({
