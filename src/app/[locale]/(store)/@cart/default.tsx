@@ -14,45 +14,46 @@ import { useActiveCartStore } from "@/lib/store/active-cart";
 export default function InitCart() {
   const { enqueueSnackbar } = useSnackbar();
   const { isAuthenticated, isLoading: isAuthLoading } = useAuthStore();
-  const { init } = useActiveCartStore();
-  const { init: initDraftCart } = useDraftCartStore();
+  const { init: initActiveCart, isLoading: isActiveCartLoading } =
+    useActiveCartStore();
+  const { init: initDraftCart, isLoading: isDraftCartLoading } =
+    useDraftCartStore();
 
   useEffect(() => {
-    if (isAuthLoading) return;
-    console.log(isAuthenticated);
-    if (isAuthenticated) {
-      (async () => {
+    const initCart = async () => {
+      if (isAuthenticated) {
         try {
           const activeCart = await getActiveCart();
-          init(activeCart.products, activeCart.finalPrice);
+          initActiveCart(activeCart.products, activeCart.finalPrice);
         } catch (error: any) {
-          console.log("active cart error", error.message);
           enqueueSnackbar(error as string, { variant: "error" });
         }
         try {
           const draftCart = await getDraftCart();
           initDraftCart(draftCart.products);
         } catch (error: any) {
-          console.log("draft cart error", error.message);
           enqueueSnackbar(error as string, { variant: "error" });
         }
-      })();
-    } else {
-      const activeCart: CartProduct[] = JSON.parse(
-        localStorage.getItem(LOCAL_STORAGE_KEYS.ActiveCart) ?? "[]",
-      );
+      } else {
+        const activeCart: CartProduct[] = JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEYS.ActiveCart) ?? "[]",
+        );
 
-      init(activeCart);
+        initActiveCart(activeCart);
 
-      const draftCart: CartProduct[] = JSON.parse(
-        localStorage.getItem(LOCAL_STORAGE_KEYS.DraftCart) ?? "[]",
-      );
+        const draftCart: CartProduct[] = JSON.parse(
+          localStorage.getItem(LOCAL_STORAGE_KEYS.DraftCart) ?? "[]",
+        );
 
-      initDraftCart(draftCart);
-    }
+        initDraftCart(draftCart);
+      }
+    };
+
+    if (!isAuthLoading && (isActiveCartLoading || isDraftCartLoading))
+      initCart();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthLoading]);
+  }, [isAuthLoading, isActiveCartLoading, isDraftCartLoading]);
 
   return null;
 }
