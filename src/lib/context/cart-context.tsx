@@ -11,7 +11,7 @@ import { getActiveCart } from "@/lib/actions/active-cart";
 import { useDraftCartStore } from "@/lib/store/draft-cart";
 import { useActiveCartStore } from "@/lib/store/active-cart";
 
-export default function InitCart() {
+export default function CartContext() {
   const { enqueueSnackbar } = useSnackbar();
   const { isAuthenticated, isLoading: isAuthLoading } = useAuthStore();
   const { init: initActiveCart, isLoading: isActiveCartLoading } =

@@ -9,15 +9,14 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 
 import { routing } from "@/lib/i18n/routing";
 import { LocaleType } from "@/lib/types/locale";
+import AuthContext from "@/lib/context/auth-context";
 import { localesSettings } from "@/lib/config/locale";
 
 export default async function RootLayout({
   children,
-  auth,
   params,
 }: {
   children: React.ReactNode;
-  auth: React.ReactNode;
   params: Promise<{ locale: LocaleType }>;
 }) {
   // Ensure that the incoming `locale` is valid
@@ -31,10 +30,8 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir}>
       <body className="grid min-h-screen antialiased">
-        <NextIntlClientProvider>
-          {auth}
-          {children}
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <AuthContext />
       </body>
     </html>
   );

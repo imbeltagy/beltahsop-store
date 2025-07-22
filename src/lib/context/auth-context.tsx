@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from "react";
 
-import { useAuthStore } from '@/lib/store/auth';
-import { deleteSessionCookies } from '@/lib/actions/auth';
-import { fetchUserByToken, saveSessionCookies } from '@/lib/actions/auth';
+import { useAuthStore } from "@/lib/store/auth";
+import { deleteSessionCookies } from "@/lib/actions/auth";
+import { fetchUserByToken, saveSessionCookies } from "@/lib/actions/auth";
 
-export default function Page() {
+export default function AuthContext() {
   const init = useAuthStore((state) => state.init);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const refreshToken = useCallback(async () => {
     const data = await fetchUserByToken();
-    if ('error' in data) {
+    if ("error" in data) {
       init(null);
       await deleteSessionCookies();
       return;
@@ -39,9 +39,12 @@ export default function Page() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      const timeoutId = setTimeout(() => {
-        refreshToken();
-      }, 10 * 60 * 1000); // 10 minutes
+      const timeoutId = setTimeout(
+        () => {
+          refreshToken();
+        },
+        10 * 60 * 1000,
+      ); // 10 minutes
 
       return () => clearTimeout(timeoutId);
     }

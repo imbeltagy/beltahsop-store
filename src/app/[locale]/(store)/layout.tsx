@@ -1,16 +1,11 @@
 import MainLayout from "@/view/layout/main";
+import CartContext from "@/lib/context/cart-context";
 
-export default function Layout({
-  children,
-  cart,
-}: {
-  children: React.ReactNode;
-  cart: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <MainLayout>
-      {cart}
-      {children}
-    </MainLayout>
+    <>
+      <MainLayout>{children}</MainLayout>
+      <CartContext />
+    </>
   );
 }
