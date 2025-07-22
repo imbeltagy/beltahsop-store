@@ -98,7 +98,7 @@ function CartItem({ product }: { product: CartProduct }) {
       <div className="flex-1">
         <Link
           href={paths.product(product.productId)}
-          className="block truncate text-sm font-medium hover:underline"
+          className="line-clamp-2 text-sm font-medium hover:underline"
         >
           {product.name}
         </Link>
