@@ -19,6 +19,10 @@ export async function getSubCategories({
         page,
         limit,
       },
+      cache: "force-cache",
+      next: {
+        revalidate: 3600, // 1 hour
+      },
     },
   );
 

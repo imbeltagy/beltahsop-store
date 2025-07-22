@@ -17,6 +17,10 @@ export async function getProducts({
       page,
       limit,
     },
+    cache: "force-cache",
+    next: {
+      revalidate: 3600, // 1 hour
+    },
   });
 
   if ("error" in products) {

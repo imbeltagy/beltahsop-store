@@ -1,19 +1,23 @@
-'use server';
+"use server";
 
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
-import { buildUrl } from './helpers';
-import { isFormData } from './helpers';
-import { routing } from '../../i18n/routing';
-import { COOKIES_KEYS } from '../../config/global';
-import { ApiResponse, RequestOptions, ApiErrorResponse } from '../../types/crud-fetch-api';
+import { buildUrl } from "./helpers";
+import { isFormData } from "./helpers";
+import { routing } from "../../i18n/routing";
+import { COOKIES_KEYS } from "../../config/global";
+import {
+  ApiResponse,
+  RequestOptions,
+  ApiErrorResponse,
+} from "../../types/crud-fetch-api";
 
 // generic function to make API requests
 async function apiRequest<TResponse, TBody = undefined>(
   endpoint: string,
   method: string,
   body?: TBody,
-  options: RequestOptions = {}
+  options: RequestOptions = {},
 ): Promise<ApiResponse<TResponse>> {
   const url = buildUrl(endpoint, options.params, options.queries);
   const cookie = await cookies();
@@ -23,12 +27,12 @@ async function apiRequest<TResponse, TBody = undefined>(
 
   const headers = {
     ...(!isFormData(body) && {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     }),
     ...(token && {
       Authorization: `Bearer ${token}`,
     }),
-    'Accept-Language': lang,
+    "Accept-Language": lang,
     ...options.headers,
   };
 
@@ -43,16 +47,19 @@ async function apiRequest<TResponse, TBody = undefined>(
       headers,
       body: reqBody,
       cache: options.cache,
-      next: { tags: options.tags },
+      next: options.next,
     });
 
     // IF THE RETURN VALUR IS NOTHING BUT A SUCCESS REQUEST (ex: edit/delete requests);
-    if (response.status === 204 || response.headers.get('content-length') === '0') {
+    if (
+      response.status === 204 ||
+      response.headers.get("content-length") === "0"
+    ) {
       return {
         success: true,
         data: {} as TResponse, // return an empty object or a default value
         meta: undefined,
-        message: 'Success',
+        message: "Success",
         status: response.status,
       };
     }
@@ -62,24 +69,31 @@ async function apiRequest<TResponse, TBody = undefined>(
     // Response check after parsing so i can get the error message
     if (!response.ok) {
       const errMsg = Array.isArray(responseData?.error)
-        ? responseData?.error.join(' | ')
-        : responseData?.error ?? responseData?.message;
+        ? responseData?.error.join(" | ")
+        : (responseData?.error ?? responseData?.message);
       const resCode = responseData?.code || null;
       const resDetails = responseData?.details || null;
       const resData = responseData?.data || {};
       const resVErrors = responseData?.validationErrors || null;
-      return errorObject(errMsg, response.status, resCode, resDetails, resData, resVErrors);
+      return errorObject(
+        errMsg,
+        response.status,
+        resCode,
+        resDetails,
+        resData,
+        resVErrors,
+      );
     }
 
     return {
       success: true,
       data: responseData,
       meta: responseData.meta,
-      message: responseData.message || 'Success',
+      message: responseData.message || "Success",
       status: response.status,
     };
   } catch (error) {
-    const errMsg = error instanceof Error ? error.message : 'unexpected_error';
+    const errMsg = error instanceof Error ? error.message : "unexpected_error";
     return errorObject(errMsg, 500);
   }
 }
@@ -87,49 +101,49 @@ async function apiRequest<TResponse, TBody = undefined>(
 // CRUD functions
 export async function getData<TResponse>(
   endpoint: string,
-  options?: RequestOptions
+  options?: RequestOptions,
 ): Promise<ApiResponse<TResponse>> {
-  return apiRequest<TResponse>(endpoint, 'GET', undefined, options);
+  return apiRequest<TResponse>(endpoint, "GET", undefined, options);
 }
 
 export async function postData<TResponse, TBody>(
   endpoint: string,
   data: TBody,
-  options?: RequestOptions
+  options?: RequestOptions,
 ): Promise<ApiResponse<TResponse>> {
-  return apiRequest<TResponse, TBody>(endpoint, 'POST', data, options);
+  return apiRequest<TResponse, TBody>(endpoint, "POST", data, options);
 }
 
 export async function putData<TResponse, TBody>(
   endpoint: string,
   data: TBody,
-  options?: RequestOptions
+  options?: RequestOptions,
 ): Promise<ApiResponse<TResponse>> {
-  return apiRequest<TResponse, TBody>(endpoint, 'PUT', data, options);
+  return apiRequest<TResponse, TBody>(endpoint, "PUT", data, options);
 }
 
 export async function patchData<TResponse, TBody>(
   endpoint: string,
   data: TBody,
-  options?: RequestOptions
+  options?: RequestOptions,
 ): Promise<ApiResponse<TResponse>> {
-  return apiRequest<TResponse, TBody>(endpoint, 'PATCH', data, options);
+  return apiRequest<TResponse, TBody>(endpoint, "PATCH", data, options);
 }
 
 export async function deleteData<TResponse>(
   endpoint: string,
-  options?: RequestOptions
+  options?: RequestOptions,
 ): Promise<ApiResponse<TResponse>> {
-  return apiRequest<TResponse>(endpoint, 'DELETE', undefined, options);
+  return apiRequest<TResponse>(endpoint, "DELETE", undefined, options);
 }
 
 const errorObject = (
-  error: string = '',
-  status: string | number = '',
+  error: string = "",
+  status: string | number = "",
   code: unknown = null,
   details: unknown = null,
   data: unknown = {},
-  validationErrors: unknown = null
+  validationErrors: unknown = null,
 ): ApiErrorResponse => ({
   success: false,
   error,

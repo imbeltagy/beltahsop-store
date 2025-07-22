@@ -26,7 +26,10 @@ export type Params = Record<string, string>;
 export type RequestOptions = {
   headers?: Record<string, string | string[]>;
   cache?: RequestCache;
-  tags?: string[];
+  next?: {
+    tags?: string[];
+    revalidate?: number | false;
+  };
   queries?: Queries;
   params?: Params;
 };
