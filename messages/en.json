@@ -201,7 +201,24 @@
       "processing_payment": "Processing Payment...",
       "login_required_message": "Please log in to complete your purchase",
       "development_warning_title": "Development Environment",
-      "development_warning_message": "This is a development environment. We will not charge you, but please do not use real payment information."
+      "development_warning_message": "This is a development environment. We will not charge you, but please do not use real payment information.",
+      "payment_failed": "Payment failed. Please try again.",
+      "success": {
+        "title": "Payment Successful! 🎉",
+        "subtitle": "Thank you for your purchase",
+        "message": "Your order has been successfully processed. You will receive a confirmation email shortly with your order details.",
+        "order_number": "Order Number",
+        "go_home": "Go to Home",
+        "view_orders": "View My Orders",
+        "continue_shopping": "Continue Shopping"
+      },
+      "cancel": {
+        "title": "Payment Cancelled",
+        "subtitle": "Your payment was not completed",
+        "message": "No worries! Your cart items are still saved. You can complete your purchase anytime.",
+        "go_back": "Go Back to Checkout",
+        "continue_shopping": "Continue Shopping"
+      }
     }
   }
 }

@@ -8,7 +8,11 @@ export const paths = {
     forgotPassword: "/auth/forgot-password",
   },
   store: "/store",
-  checkout: "/checkout",
+  checkout: {
+    productsList: "/checkout",
+    success: "/checkout/success",
+    cancel: "/checkout/cancel",
+  },
   blog: "/blog",
   faqs: "/faqs",
   contact: "/contact",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { useAuthStore } from "@/lib/store/auth";
@@ -7,21 +8,32 @@ import { Button } from "@/view/components/ui/button";
 import { useBoolean } from "@/lib/hooks/use-boolean";
 import Alert from "@/view/components/elements/alert";
 import { useActiveCartStore } from "@/lib/store/active-cart";
+import { createCheckoutSession } from "@/lib/actions/checkout";
 
 import RequireAuthDialog from "../auth/view/require-auth-dialog";
 
 export default function CheckoutSummary() {
-  const { isAuthenticated } = useAuthStore();
   const t = useTranslations("Pages.Checkout");
+  const { isAuthenticated } = useAuthStore();
+  const [error, setError] = useState<string | null>(null);
+
   const paymentLoading = useBoolean();
   const authDialogOpen = useBoolean();
 
   // Handle payment processing
   const handlePayment = async () => {
     if (!isAuthenticated) return;
+    setError(null);
     paymentLoading.onTrue();
 
-    //  TODO: Implement payment
+    try {
+      const { url } = await createCheckoutSession();
+
+      window.location.href = url;
+    } catch (ignoreError) {
+      setError(t("payment_failed"));
+    }
+
     paymentLoading.onFalse();
   };
 
@@ -31,9 +43,13 @@ export default function CheckoutSummary() {
         <OrderSummary />
 
         {/* Development Warning */}
-        <Alert variant="warning" title={t("development_warning_title")}>
-          {t("development_warning_message")}
-        </Alert>
+        {error ? (
+          <Alert variant="error">{error}</Alert>
+        ) : (
+          <Alert variant="warning" title={t("development_warning_title")}>
+            {t("development_warning_message")}
+          </Alert>
+        )}
 
         {/* Payment Button */}
         <Button

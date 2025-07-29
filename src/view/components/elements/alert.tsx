@@ -43,13 +43,13 @@ export default function Alert({
 const variantClasses = {
   success: "bg-green-100 text-green-800 border-green-800",
   error: "bg-red-100 text-red-800 border-red-800",
-  warning: "text-yellow-600 border-yellow-200 bg-yellow-50",
-  info: "bg-blue-100 text-blue-800 border-blue-800",
+  warning: "bg-yellow-50 text-yellow-600 border-yellow-200",
+  info: "bg-blue-50 text-blue-800 border-blue-300",
 };
 
 const variantIcons = {
   success: "mdi:check-circle",
   error: "mdi:alert-circle",
-  warning: "mdi:alert-circle",
-  info: "mdi:alert-circle",
+  warning: "mdi:information-outline",
+  info: "mdi:information-outline",
 };
