@@ -5,27 +5,9 @@ import { paths } from "@/lib/config/paths";
 import { Iconify } from "@/view/components/iconify";
 import { Button } from "@/view/components/ui/button";
 import Alert from "@/view/components/elements/alert";
-import { postData } from "@/lib/utils/crud-fetch-api";
 
-export default async function CheckoutSuccessPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ sessionId: string }>;
-}) {
+export default async function CheckoutSuccessPage() {
   const t = await getTranslations("Pages.Checkout.success");
-
-  const { sessionId } = await searchParams;
-
-  if (sessionId) {
-    postData("/checkout/clear-session", {
-      sessionId,
-    }).then((res) => {
-      if ("error" in res && process.env.NODE_ENV === "development") {
-        // eslint-disable-next-line no-console
-        console.error(res.error);
-      }
-    });
-  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">

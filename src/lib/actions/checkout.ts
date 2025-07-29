@@ -7,7 +7,7 @@ export async function createCheckoutSession() {
     throw new Error("NEXT_PUBLIC_APP_URL is not set");
   }
 
-  const successUrl = `${appUrl}${paths.checkout.success}?sessionId={sessionId}`;
+  const successUrl = `${appUrl}${paths.checkout.success}`;
   const cancelUrl = `${appUrl}${paths.checkout.cancel}`;
 
   const res = await postData<{ url: string }, any>("/checkout/create-session", {
