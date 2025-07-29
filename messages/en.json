@@ -200,8 +200,10 @@
       "pay_now": "Pay Now",
       "processing_payment": "Processing Payment...",
       "login_required_message": "Please log in to complete your purchase",
-      "development_warning_title": "Development Environment",
-      "development_warning_message": "This is a development environment. We will not charge you, but please do not use real payment information.",
+      "development_warning_title": "Do not use real payment information",
+      "development_warning_message": "Use this test card for payment: <button>4242 4242 4242 4242</button> with any future date and any CVC",
+      "copy_card_number": "Copy Card Number",
+      "card_number_copied": "Card number copied to clipboard",
       "payment_failed": "Payment failed. Please try again.",
       "success": {
         "title": "Payment Successful! 🎉",

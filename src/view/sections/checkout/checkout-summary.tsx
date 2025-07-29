@@ -7,6 +7,7 @@ import { useAuthStore } from "@/lib/store/auth";
 import { Button } from "@/view/components/ui/button";
 import { useBoolean } from "@/lib/hooks/use-boolean";
 import Alert from "@/view/components/elements/alert";
+import { Tooltip } from "@/view/components/elements";
 import { useActiveCartStore } from "@/lib/store/active-cart";
 import { createCheckoutSession } from "@/lib/actions/checkout";
 
@@ -16,6 +17,8 @@ export default function CheckoutSummary() {
   const t = useTranslations("Pages.Checkout");
   const { isAuthenticated } = useAuthStore();
   const [error, setError] = useState<string | null>(null);
+
+  const isCopied = useBoolean();
 
   const paymentLoading = useBoolean();
   const authDialogOpen = useBoolean();
@@ -47,7 +50,32 @@ export default function CheckoutSummary() {
           <Alert variant="error">{error}</Alert>
         ) : (
           <Alert variant="warning" title={t("development_warning_title")}>
-            {t("development_warning_message")}
+            {t.rich("development_warning_message", {
+              button: (chunks) => (
+                <Tooltip
+                  label={
+                    isCopied.value
+                      ? t("card_number_copied")
+                      : t("copy_card_number")
+                  }
+                >
+                  <button
+                    className="text-primary cursor-pointer hover:underline"
+                    onClick={() => {
+                      navigator.clipboard.writeText("4242 4242 4242 4242");
+                      isCopied.onTrue();
+                    }}
+                    onMouseLeave={() => {
+                      setTimeout(() => {
+                        isCopied.onFalse();
+                      }, 200);
+                    }}
+                  >
+                    {chunks}
+                  </button>
+                </Tooltip>
+              ),
+            })}
           </Alert>
         )}
 
