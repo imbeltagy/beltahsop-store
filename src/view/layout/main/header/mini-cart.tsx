@@ -67,7 +67,7 @@ export default function MiniCart() {
           variant="default"
           className="w-full py-3 text-base no-underline"
         >
-          <a href={paths.store}>{t("go_to_cart", { finalPrice })}</a>
+          <a href={paths.checkout}>{t("go_to_checkout", { finalPrice })}</a>
         </Button>
       </div>
     </div>

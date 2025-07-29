@@ -129,7 +129,10 @@
       "verify_password": "Verify Password",
       "password_reset_success": "Your password has been reset successfully",
       "incorrect_password": "Password is incorrect",
-      "login_instead": "Do you want to login instead?"
+      "login_instead": "Do you want to login instead?",
+      "auth_required_title": "Login Required",
+      "auth_required_message": "You need to be logged in to complete your purchase. Please log in or create an account to continue.",
+      "go_to_login": "Go to Login"
     },
     "Home": {
       "Hero": {
@@ -178,10 +181,27 @@
       "add_to_collection": "Add to Collection",
       "remove_from_collection": "Remove from Collection",
       "cart_empty": "Your cart is empty",
-      "go_to_cart": "Go to Cart ({finalPrice})",
+      "go_to_checkout": "Checkout ({finalPrice})",
       "increase": "Increase",
       "decrease": "Decrease",
       "remove": "Remove"
+    },
+    "Checkout": {
+      "checkout_title": "Checkout",
+      "cart_empty_title": "Your cart is empty",
+      "cart_empty_message": "Looks like you haven't added any items to your cart yet.",
+      "continue_shopping": "Continue Shopping",
+      "items_count": "{count, plural, =1 {item} other {items}}",
+      "order_summary": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "free": "Free",
+      "total": "Total",
+      "pay_now": "Pay Now",
+      "processing_payment": "Processing Payment...",
+      "login_required_message": "Please log in to complete your purchase",
+      "development_warning_title": "Development Environment",
+      "development_warning_message": "This is a development environment. We will not charge you, but please do not use real payment information."
     }
   }
 }

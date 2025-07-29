@@ -129,7 +129,10 @@
       "verify_password": "التحقق من كلمة المرور",
       "password_reset_success": "تم إعادة تعيين كلمة المرور بنجاح",
       "incorrect_password": "كلمة المرور غير صحيحة",
-      "login_instead": "هل تود تسجيل الدخول بدلا من هذا؟"
+      "login_instead": "هل تود تسجيل الدخول بدلا من هذا؟",
+      "auth_required_title": "تسجيل الدخول مطلوب",
+      "auth_required_message": "تحتاج إلى تسجيل الدخول لإتمام عملية الشراء. يرجى تسجيل الدخول أو إنشاء حساب للمتابعة.",
+      "go_to_login": "الذهاب لتسجيل الدخول"
     },
     "Home": {
       "Hero": {
@@ -178,10 +181,27 @@
       "add_to_collection": "أضف إلى المجموعة",
       "remove_from_collection": "أزل من المجموعة",
       "cart_empty": "سلة التسوق فارغة",
-      "go_to_cart": "الذهاب إلى السلة ({finalPrice})",
+      "go_to_checkout": "إتمام الطلب ({finalPrice})",
       "increase": "زيادة",
       "decrease": "إنقاص",
       "remove": "إزالة"
+    },
+    "Checkout": {
+      "checkout_title": "إتمام الطلب",
+      "cart_empty_title": "سلة التسوق فارغة",
+      "cart_empty_message": "يبدو أنك لم تضيف أي منتجات إلى سلة التسوق بعد.",
+      "continue_shopping": "مواصلة التسوق",
+      "items_count": "{count, plural, =1 {منتج} other {منتجات}}",
+      "order_summary": "ملخص الطلب",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "free": "مجاني",
+      "total": "المجموع",
+      "pay_now": "ادفع الآن",
+      "processing_payment": "جاري معالجة الدفع...",
+      "login_required_message": "يرجى تسجيل الدخول لإتمام عملية الشراء",
+      "development_warning_title": "بيئة التطوير",
+      "development_warning_message": "هذه بيئة تطوير. لن نقوم بخصم أي مبالغ، ولكن يرجى عدم استخدام معلومات دفع حقيقية."
     }
   }
 }
