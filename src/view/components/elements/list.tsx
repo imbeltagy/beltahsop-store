@@ -23,7 +23,7 @@ export default function List({ items }: Props) {
             <a
               href={item.link}
               className={cn(
-                "icon-btn flex w-full items-center gap-2",
+                "icon-btn flex w-full items-center gap-2 no-underline",
                 item.className,
               )}
             >

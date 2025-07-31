@@ -8,11 +8,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main>
+    <main className="flex flex-col">
       <Header />
       <div style={{ height: `${HEADER_HEIGHT}px` }} />
 
-      {children}
+      <div className="grow">{children}</div>
 
       <Footer />
     </main>

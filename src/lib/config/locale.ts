@@ -1,56 +1,56 @@
-import { LocaleType, LocaleSetting } from '../types/locale';
+import { LocaleType, LocaleSetting } from "../types/locale";
 
 export const localesSettings: Record<LocaleType, LocaleSetting> = {
   ar: {
-    label: 'العربية',
-    value: 'ar',
-    dir: 'rtl',
-    currency: 'ر.ي',
-    icon: 'flagpack:sa',
+    label: "العربية",
+    value: "ar",
+    dir: "rtl",
+    currency: "ج.م",
+    icon: "flagpack:sa",
     format: {
       date: {
-        locale: 'ar-eg',
+        locale: "ar-eg",
         options: {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
+          day: "numeric",
+          month: "short",
+          year: "numeric",
         },
       },
       time: {
-        locale: 'ar',
+        locale: "ar",
         options: {
-          hours: 'numeric',
-          minuts: 'numeric',
-          timeStyle: 'short',
+          hours: "numeric",
+          minuts: "numeric",
+          timeStyle: "short",
         },
       },
-      bothPattern: '{time}، {date}',
+      bothPattern: "{time}، {date}",
     },
   },
   en: {
-    label: 'English',
-    value: 'en',
-    dir: 'ltr',
-    currency: 'YER',
-    icon: 'flagpack:gb-nir',
+    label: "English",
+    value: "en",
+    dir: "ltr",
+    currency: "EGP",
+    icon: "flagpack:gb-nir",
     format: {
       date: {
-        locale: 'en-au',
+        locale: "en-au",
         options: {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric',
+          day: "numeric",
+          month: "short",
+          year: "numeric",
         },
       },
       time: {
-        locale: 'en',
+        locale: "en",
         options: {
-          hours: 'numeric',
-          minuts: 'numeric',
-          timeStyle: 'short',
+          hours: "numeric",
+          minuts: "numeric",
+          timeStyle: "short",
         },
       },
-      bothPattern: '{time}, {date}',
+      bothPattern: "{time}, {date}",
     },
   },
 };

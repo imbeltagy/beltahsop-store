@@ -45,6 +45,14 @@ export default function ProfileButton() {
       link: paths.profile,
     },
     {
+      text: t("Navigation.orders"),
+      link: paths.orders,
+    },
+    {
+      text: t("Navigation.draft"),
+      link: paths.draft,
+    },
+    {
       text: t("Navigation.logout"),
       className: "text-rose-500 font-semibold tracking-wider hover:bg-rose-100",
       onClick: () => {

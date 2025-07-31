@@ -17,6 +17,8 @@ export const paths = {
   faqs: "/faqs",
   contact: "/contact",
   profile: "/profile",
+  orders: "/orders",
+  draft: "/draft",
   product: (id: string) => `/store/product/${id}`,
   category: (id: string) => `/store/category/${id}`,
 };

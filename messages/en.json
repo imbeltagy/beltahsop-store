@@ -11,6 +11,10 @@
       "forgot_password_title": "Forgot Password | Beltahop",
       "reset_password_title": "Reset Password | Beltahop",
       "email_confirmation_title": "Email Confirmation | Beltahop"
+    },
+    "Orders": {
+      "title": "My Orders | Beltahop",
+      "details_title": "Order Details | Beltahop"
     }
   },
   "Navigation": {
@@ -29,7 +33,9 @@
     "size_guide": "Size Guide",
     "privacy_policy": "Privacy Policy",
     "terms_of_service": "Terms of Service",
-    "cookie_policy": "Cookie Policy"
+    "cookie_policy": "Cookie Policy",
+    "orders": "Orders",
+    "draft": "Saved Products"
   },
   "Footer": {
     "description": "Discover unique footwear that tells your story. Quality craftsmanship meets contemporary design for the modern individual.",
@@ -44,38 +50,27 @@
     "creator_name": "Mohammad Beltagy"
   },
   "Global": {
+    "Helper": {
+      "showing_range": "Showing {start} - {end} of {total} items"
+    },
     "Validation": {
       "email_required": "Email is required",
-      "email_invalid": "Email is invalid",
+      "email_invalid": "Please enter a valid email address",
       "password_required": "Password is required",
-      "password_length": "Password must be at least {length} characters long",
-      "password_lowercase": "Password must contain at least one lowercase letter",
-      "password_uppercase": "Password must contain at least one uppercase letter",
-      "password_number": "Password must contain at least one number",
-      "password_special": "Password must contain at least one special character",
-      "fullName_required": "Full name is required",
-      "confirm_password_required": "Please confirm your password",
-      "passwords_must_match": "Passwords must match",
+      "password_min_length": "Password must be at least 8 characters",
+      "password_confirm_required": "Please confirm your password",
+      "password_confirm_mismatch": "Passwords do not match",
+      "name_required": "Name is required",
+      "name_min_length": "Name must be at least 2 characters",
+      "phone_required": "Phone number is required",
+      "phone_invalid": "Please enter a valid phone number",
       "otp_required": "OTP is required",
-      "otp_length": "OTP must be 6 characters long"
-    },
-    "Label": {
-      "email": "Email",
-      "password": "Password",
-      "confirm_password": "Confirm Password",
-      "old_password": "Old Password",
-      "new_password": "New Password",
-      "fullName": "Full Name",
-      "otp": "Enter OTP",
-      "search": "Search"
-    },
-    "Helper": {
-      "upload_drag_drop_file": "Drag & drop or click to upload file",
-      "upload_drag_drop_files": "Drag & drop or click to upload multiple files",
-      "upload_drop_here_file": "Drop the file here",
-      "upload_drop_here_files": "Drop the files here",
-      "upload_file_size_error": "File size ({current}) exceeds the maximum allowed size ({max})",
-      "upload_file_type_error": "File type not allowed. Accepted types: {accepted}",
+      "otp_invalid": "Please enter a valid 4-digit OTP",
+      "otp_expired": "OTP has expired. Please request a new one",
+      "otp_max_attempts": "Too many attempts. Please try again later",
+      "file_required": "File is required",
+      "file_size_limit": "File size must be less than 5MB",
+      "file_type_invalid": "Invalid file type. Please upload an image",
       "upload_accepted_types": "Accepted file types: {types}"
     },
     "Action": {
@@ -133,6 +128,45 @@
       "auth_required_title": "Login Required",
       "auth_required_message": "You need to be logged in to complete your purchase. Please log in or create an account to continue.",
       "go_to_login": "Go to Login"
+    },
+    "Orders": {
+      "title": "My Orders",
+      "subtitle": "View and manage your order history",
+      "order_id": "Order ID",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total",
+      "actions": "Actions",
+      "view": "View",
+      "order_again": "Order Again",
+      "no_orders_title": "No orders found",
+      "no_orders_message": "You haven't placed any orders yet.",
+      "start_shopping": "Start Shopping",
+      "back_to_orders": "Back to Orders",
+      "order_details": "Order Details",
+      "order_information": "Order Information",
+      "download_invoice": "Download Invoice",
+      "need_help": "Need Help?",
+      "products": "Products",
+      "quantity": "Quantity",
+      "price_each": "Price: {price} each",
+      "order_summary": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "free": "Free",
+      "reorder_dialog_title": "Re-order Products",
+      "reorder_dialog_message": "Add all products from order #{orderId} to your cart?",
+      "add_to_cart": "Add to Cart",
+      "adding_to_cart": "Adding to Cart...",
+      "products_added_success": "Products added to cart successfully!",
+      "error_loading_order": "Error loading order",
+      "error_reordering": "Error re-ordering products",
+      "cancel": "Cancel",
+      "qty": "Qty:",
+      "status_confirmed": "Confirmed",
+      "status_delivered": "Delivered",
+      "status_cancelled": "Cancelled",
+      "all": "All"
     },
     "Home": {
       "Hero": {
