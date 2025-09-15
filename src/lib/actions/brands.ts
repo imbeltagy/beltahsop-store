@@ -2,10 +2,10 @@
 
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
-import { Category } from "../types/api/categories";
+import { Brand } from "../types/api/brands";
 import { ListResponse } from "../types/api/metadata";
 
-export async function getCategories({
+export async function getBrands({
   page = 1,
   limit = DEFAULT_LIMIT,
   search,
@@ -14,7 +14,7 @@ export async function getCategories({
   limit?: number;
   search?: string;
 }) {
-  const categories = await getData<ListResponse<Category>>("/categories", {
+  const brands = await getData<ListResponse<Brand>>("/brands", {
     queries: {
       page,
       limit,
@@ -26,9 +26,9 @@ export async function getCategories({
     },
   });
 
-  if ("error" in categories) {
-    throw new Error(categories.error);
+  if ("error" in brands) {
+    throw new Error(brands.error);
   }
 
-  return categories.data;
+  return brands.data;
 }

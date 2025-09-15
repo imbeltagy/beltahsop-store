@@ -21,8 +21,15 @@ export default async function HomeCategories() {
         />
 
         <div className="xs:grid-cols-2 grid grid-cols-1 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {[...categories, ...subCategories].map((category) => (
+          {categories.map((category) => (
             <CategoryCard key={category._id} category={category} />
+          ))}
+          {subCategories.map((category) => (
+            <CategoryCard
+              key={category._id}
+              category={category}
+              isSubCategory
+            />
           ))}
         </div>
       </Container>

@@ -5,6 +5,9 @@
     "Home": {
       "title": "الرئيسية | Beltahop"
     },
+    "Products": {
+      "title": "المنتجات | Beltahop"
+    },
     "Auth": {
       "login_title": "تسجيل الدخول | Beltahop",
       "register_title": "إنشاء حساب | Beltahop",
@@ -20,6 +23,7 @@
   "Navigation": {
     "home": "الرئيسية",
     "store": "المتجر",
+    "products": "المنتجات",
     "blog": "المدونات",
     "FAQs": "الاسئلة الشائعة",
     "contact": "تواصل معنا",
@@ -96,7 +100,8 @@
       "link": "رابط",
       "unlink": "إلغاء الربط",
       "enable": "تفعيل",
-      "disable": "إلغاء التفعيل"
+      "disable": "إلغاء التفعيل",
+      "apply": "تطبيق"
     }
   },
   "Pages": {
@@ -254,6 +259,37 @@
         "message": "لا تقلق! منتجات سلة التسوق لا تزال محفوظة. يمكنك إتمام عملية الشراء في أي وقت.",
         "go_back": "العودة إلى إتمام الطلب",
         "continue_shopping": "مواصلة التسوق"
+      }
+    },
+    "Products": {
+      "title": "المتجر",
+      "subtitle": "اكتشف مجموعتنا الرائعة من المنتجات",
+      "filters": {
+        "title": "الفلاتر",
+        "search_placeholder": "البحث في المنتجات...",
+        "category": "الفئة",
+        "subcategory": "الفئة الفرعية",
+        "brand": "العلامة التجارية",
+        "tag": "العلامة",
+        "label": "التسمية",
+        "price_range": "نطاق السعر",
+        "min_price": "أقل سعر",
+        "max_price": "أعلى سعر",
+        "apply_price": "تطبيق السعر",
+        "clear_price": "مسح السعر",
+        "active_filters": "الفلاتر النشطة",
+        "clear_all": "مسح الكل",
+        "select_category": "اختر الفئة",
+        "select_subcategory": "اختر الفئة الفرعية",
+        "select_brand": "اختر العلامة التجارية",
+        "select_tag": "اختر العلامة",
+        "select_label": "اختر التسمية"
+      },
+      "results": {
+        "title": "المنتجات ({total})",
+        "showing": "عرض {start} إلى {end} من {total} نتيجة",
+        "no_products_title": "لم يتم العثور على منتجات",
+        "no_products_message": "حاول تعديل معايير البحث أو التصفية للعثور على ما تبحث عنه."
       }
     }
   }

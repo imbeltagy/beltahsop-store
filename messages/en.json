@@ -5,6 +5,9 @@
     "Home": {
       "title": "Home | Beltahop"
     },
+    "Products": {
+      "title": "Products | Beltahop"
+    },
     "Auth": {
       "login_title": "Login | Beltahop",
       "register_title": "Register | Beltahop",
@@ -20,6 +23,7 @@
   "Navigation": {
     "home": "Home",
     "store": "Store",
+    "products": "Products",
     "blog": "Blog",
     "FAQs": "FAQs",
     "contact": "Contact",
@@ -96,7 +100,8 @@
       "link": "Link",
       "unlink": "Unlink",
       "enable": "Enable",
-      "disable": "Disable"
+      "disable": "Disable",
+      "apply": "Apply"
     }
   },
   "Pages": {
@@ -254,6 +259,37 @@
         "message": "No worries! Your cart items are still saved. You can complete your purchase anytime.",
         "go_back": "Go Back to Checkout",
         "continue_shopping": "Continue Shopping"
+      }
+    },
+    "Products": {
+      "title": "Store",
+      "subtitle": "Discover our amazing collection of products",
+      "filters": {
+        "title": "Filters",
+        "search_placeholder": "Search products...",
+        "category": "Category",
+        "subcategory": "Subcategory",
+        "brand": "Brand",
+        "tag": "Tag",
+        "label": "Label",
+        "price_range": "Price Range",
+        "min_price": "Min price",
+        "max_price": "Max price",
+        "apply_price": "Apply price",
+        "clear_price": "Clear price",
+        "active_filters": "Active Filters",
+        "clear_all": "Clear All",
+        "select_category": "Select category",
+        "select_subcategory": "Select subcategory",
+        "select_brand": "Select brand",
+        "select_tag": "Select tag",
+        "select_label": "Select label"
+      },
+      "results": {
+        "title": "Products ({total})",
+        "showing": "Showing {start} to {end} of {total} results",
+        "no_products_title": "No products found",
+        "no_products_message": "Try adjusting your search or filter criteria to find what you're looking for."
       }
     }
   }

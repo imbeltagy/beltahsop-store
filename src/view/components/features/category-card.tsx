@@ -6,13 +6,21 @@ import { Category } from "@/lib/types/api/categories";
 
 export default function CategoryCard({
   category: { _id, cover, name },
+  isSubCategory = false,
 }: {
   category: Category;
+  isSubCategory?: boolean;
 }) {
   return (
     <div className="overflow-hidden rounded-xl bg-white shadow transition-shadow duration-300 hover:shadow-2xl">
       <Link
-        href={paths.category(_id)}
+        href={{
+          pathname: paths.products,
+          query: {
+            [isSubCategory ? "subCategoryId" : "categoryId"]: _id,
+            name: name,
+          },
+        }}
         className="relative block aspect-square h-auto"
       >
         <Image

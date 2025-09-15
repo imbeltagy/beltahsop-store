@@ -8,16 +8,59 @@ import { ListResponse } from "../types/api/metadata";
 export async function getProducts({
   page = 1,
   limit = DEFAULT_LIMIT,
+  search,
+  categoryId,
+  subCategoryId,
+  brandId,
+  labelId,
+  tagId,
+  minPrice,
+  maxPrice,
 }: {
   page?: number;
   limit?: number;
+  search?: string;
+  categoryId?: string;
+  subCategoryId?: string;
+  brandId?: string;
+  labelId?: string;
+  tagId?: string;
+  minPrice?: number;
+  maxPrice?: number;
 }) {
+  const queries: Record<string, string | number> = {
+    page,
+    limit,
+  };
+
+  if (search) {
+    queries.search = search;
+  }
+  if (categoryId) {
+    queries.category = categoryId;
+  }
+  if (subCategoryId) {
+    queries.subcategory = subCategoryId;
+  }
+  if (brandId) {
+    queries.brand = brandId;
+  }
+  if (labelId) {
+    queries.label = labelId;
+  }
+  if (tagId) {
+    queries.tag = tagId;
+  }
+  if (minPrice !== undefined && minPrice !== 0) {
+    queries.minPrice = minPrice;
+  }
+  if (maxPrice !== undefined && maxPrice !== 0) {
+    queries.maxPrice = maxPrice;
+  }
+
   const products = await getData<ListResponse<Product>>("/products", {
-    queries: {
-      page,
-      limit,
-    },
-    cache: "force-cache",
+    queries,
+    cache: "no-cache",
     next: {
       revalidate: 3600, // 1 hour
     },

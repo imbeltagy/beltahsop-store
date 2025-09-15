@@ -7,7 +7,7 @@ export const paths = {
     resetPassword: "/auth/reset-password",
     forgotPassword: "/auth/forgot-password",
   },
-  store: "/store",
+  products: "/products",
   checkout: {
     productsList: "/checkout",
     success: "/checkout/success",
