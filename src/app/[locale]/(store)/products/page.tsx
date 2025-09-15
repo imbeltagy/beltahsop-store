@@ -1,36 +1,50 @@
-import { use } from "react";
-import { setRequestLocale, getTranslations } from "next-intl/server";
-
 import { routing } from "@/lib/i18n/routing";
-import { LocaleType } from "@/lib/types/locale";
+import { getProducts } from "@/lib/actions/products";
 import ProductsView from "@/view/sections/products/view";
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Promise<{ locale: LocaleType }>;
-// }) {
-//   const { locale } = use(params);
-//   setRequestLocale(locale);
+type FiltersKeys =
+  | "page"
+  | "limit"
+  | "search"
+  | "categoryId"
+  | "subCategoryId"
+  | "brandId"
+  | "tagId"
+  | "labelId"
+  | "minPrice"
+  | "maxPrice";
+interface Props {
+  searchParams: Promise<Record<FiltersKeys, string | undefined>>;
+}
 
-//   const t = await getTranslations("Metadata.Products");
+export default async function Page({ searchParams }: Props) {
+  const {
+    page,
+    limit,
+    search,
+    categoryId,
+    subCategoryId,
+    brandId,
+    tagId,
+    labelId,
+    minPrice,
+    maxPrice,
+  } = await searchParams;
 
-//   return {
-//     title: t("title"),
-//   };
-// }
+  const productsPromise = getProducts({
+    page: page ? Number(page) : undefined,
+    limit: limit ? Number(limit) : undefined,
+    search,
+    categoryId,
+    subCategoryId,
+    brandId,
+    tagId,
+    labelId,
+    minPrice: minPrice ? Number(minPrice) : undefined,
+    maxPrice: maxPrice ? Number(maxPrice) : undefined,
+  });
 
-export default function Page({
-  params,
-}: {
-  params: Promise<{ locale: LocaleType }>;
-}) {
-  const { locale } = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale);
-
-  return <ProductsView />;
+  return <ProductsView productsPromise={productsPromise} />;
 }
 
 export function generateStaticParams() {

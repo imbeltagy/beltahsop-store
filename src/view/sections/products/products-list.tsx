@@ -1,16 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-import { getProducts } from "@/lib/actions/products";
-import ProductCard from "@/view/components/features/product/product-cart";
-import { Pagination } from "@/view/components/ui/pagination";
 import { Skeleton } from "@/view/components/ui/skeleton";
+import { Pagination } from "@/view/components/ui/pagination";
+import { ProducstListPromise } from "@/lib/actions/products";
+import ProductCard from "@/view/components/features/product/product-cart";
 
-export default function ProductsList() {
-  const searchParams = useSearchParams();
+export default function ProductsList({
+  productsPromise,
+}: {
+  productsPromise: ProducstListPromise;
+}) {
   const t = useTranslations("Pages.Products.results");
   const [products, setProducts] = useState<any[]>([]);
   const [pagination, setPagination] = useState({
@@ -20,34 +22,15 @@ export default function ProductsList() {
   });
   const [loading, setLoading] = useState(true);
 
-  const currentPage = Number(searchParams.get("page")) || 1;
-  const limit = 12;
-
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const result = await getProducts({
-          page: currentPage,
-          limit,
-          search: searchParams.get("search") || undefined,
-          categoryId: searchParams.get("categoryId") || undefined,
-          subCategoryId: searchParams.get("subCategoryId") || undefined,
-          brandId: searchParams.get("brandId") || undefined,
-          tagId: searchParams.get("tagId") || undefined,
-          labelId: searchParams.get("labelId") || undefined,
-          minPrice: searchParams.get("minPrice")
-            ? Number(searchParams.get("minPrice"))
-            : undefined,
-          maxPrice: searchParams.get("maxPrice")
-            ? Number(searchParams.get("maxPrice"))
-            : undefined,
-        });
+        const result = await productsPromise;
 
         setProducts(result.data);
         setPagination(result.metadata);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+      } catch (ignoreError) {
         setProducts([]);
         setPagination({ total: 0, page: 1, limit: 12 });
       } finally {
@@ -56,9 +39,7 @@ export default function ProductsList() {
     };
 
     fetchProducts();
-  }, [searchParams, currentPage]);
-
-  const totalPages = Math.ceil(pagination.total / limit);
+  }, [productsPromise]);
 
   if (loading) {
     return (
@@ -104,8 +85,11 @@ export default function ProductsList() {
           </h2>
           <p className="text-sm text-gray-600">
             {t("showing", {
-              start: (currentPage - 1) * limit + 1,
-              end: Math.min(currentPage * limit, pagination.total),
+              start: (pagination.page - 1) * pagination.limit + 1,
+              end: Math.min(
+                pagination.page * pagination.limit,
+                pagination.total,
+              ),
               total: pagination.total,
             })}
           </p>
@@ -122,17 +106,7 @@ export default function ProductsList() {
           </div>
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={(page) => {
-                const params = new URLSearchParams(window.location.search);
-                params.set("page", page.toString());
-                window.location.href = `?${params.toString()}`;
-              }}
-            />
-          )}
+          <Pagination totalItems={pagination.total} className="ms-auto w-fit" />
         </>
       ) : (
         <div className="py-12 text-center">

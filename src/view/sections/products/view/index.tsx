@@ -1,10 +1,18 @@
 import { useTranslations } from "next-intl";
+
+import { ProducstListPromise } from "@/lib/actions/products";
+
 import ProductsFilters from "../filters";
 import ProductsList from "../products-list";
 import ProductsFiltersDialog from "../filters-dialog";
 
-export default function ProductsView() {
+export default function ProductsView({
+  productsPromise,
+}: {
+  productsPromise: ProducstListPromise;
+}) {
   const t = useTranslations("Pages.Products");
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
@@ -21,7 +29,7 @@ export default function ProductsView() {
 
           {/* Products List */}
           <div className="xl:w-3/4">
-            <ProductsList />
+            <ProductsList productsPromise={productsPromise} />
           </div>
         </div>
 

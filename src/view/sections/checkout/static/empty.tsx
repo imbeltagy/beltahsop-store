@@ -23,7 +23,7 @@ export default function CheckoutEmpty() {
           {t("cart_empty_title")}
         </h2>
         <p className="text-muted-foreground mb-6">{t("cart_empty_message")}</p>
-        <Link href={paths.store}>
+        <Link href={paths.products}>
           <Button>{t("continue_shopping")}</Button>
         </Link>
       </div>

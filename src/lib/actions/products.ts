@@ -5,6 +5,8 @@ import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
 import { ListResponse } from "../types/api/metadata";
 
+export type ProducstListPromise = Promise<ListResponse<Product>>;
+
 export async function getProducts({
   page = 1,
   limit = DEFAULT_LIMIT,
@@ -27,7 +29,7 @@ export async function getProducts({
   tagId?: string;
   minPrice?: number;
   maxPrice?: number;
-}) {
+}): ProducstListPromise {
   const queries: Record<string, string | number> = {
     page,
     limit,
@@ -60,7 +62,7 @@ export async function getProducts({
 
   const products = await getData<ListResponse<Product>>("/products", {
     queries,
-    cache: "no-cache",
+    cache: "force-cache",
     next: {
       revalidate: 3600, // 1 hour
     },

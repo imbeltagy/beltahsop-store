@@ -1,23 +1,19 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { useDebounce } from "@/lib/hooks/use-debounce";
-import { useQueryParams } from "@/lib/hooks/use-query-params";
+import { useMemo, useState, useEffect, useCallback } from "react";
 
-import { Button } from "@/view/components/ui/button";
-import Input from "@/view/components/form/input";
-import AutocompleteSelect from "@/view/components/form/autocomplete-select";
-// Removed range slider in favor of numeric inputs for min/max price
-import Chip from "@/view/components/ui/chip";
-
-// Import API functions
-import { getCategories } from "@/lib/actions/categories";
-import { getSubCategories } from "@/lib/actions/sub-categories";
-import { getBrands } from "@/lib/actions/brands";
 import { getTags } from "@/lib/actions/tags";
+import Input from "@/view/components/form/input";
+import { getBrands } from "@/lib/actions/brands";
 import { getLabels } from "@/lib/actions/labels";
 import { cn } from "@/lib/utils/style-functions";
+import { Button } from "@/view/components/ui/button";
+import { useDebounce } from "@/lib/hooks/use-debounce";
+import { getCategories } from "@/lib/actions/categories";
+import { useQueryParams } from "@/lib/hooks/use-query-params";
+import { getSubCategories } from "@/lib/actions/sub-categories";
+import AutocompleteSelect from "@/view/components/form/autocomplete-select";
 
 interface FilterState {
   search: string;
@@ -46,7 +42,6 @@ export default function ProductsFilters({
   action?: React.ReactNode;
 }) {
   const t = useTranslations("Pages.Products.filters");
-  const tAction = useTranslations("Global.Action");
   const {
     values: queries,
     set: setQueries,
@@ -148,9 +143,7 @@ export default function ProductsFilters({
           tags: tagsRes.data,
           labels: labelsRes.data,
         });
-      } catch (error) {
-        console.error("Error loading filter options:", error);
-      }
+      } catch (ignoreError) {}
     };
 
     loadInitialData();
@@ -164,8 +157,7 @@ export default function ProductsFilters({
     try {
       const result = await getCategories({ search: searchTerm, limit: 10 });
       setOptions((prev) => ({ ...prev, categories: result.data }));
-    } catch (error) {
-      console.error("Error searching categories:", error);
+    } catch (ignoreError) {
     } finally {
       setLoading((prev) => ({ ...prev, categories: false }));
     }
@@ -178,8 +170,7 @@ export default function ProductsFilters({
     try {
       const result = await getSubCategories({ search: searchTerm, limit: 10 });
       setOptions((prev) => ({ ...prev, subCategories: result.data }));
-    } catch (error) {
-      console.error("Error searching subcategories:", error);
+    } catch (ignoreError) {
     } finally {
       setLoading((prev) => ({ ...prev, subCategories: false }));
     }
@@ -192,8 +183,7 @@ export default function ProductsFilters({
     try {
       const result = await getBrands({ search: searchTerm, limit: 10 });
       setOptions((prev) => ({ ...prev, brands: result.data }));
-    } catch (error) {
-      console.error("Error searching brands:", error);
+    } catch (ignoreError) {
     } finally {
       setLoading((prev) => ({ ...prev, brands: false }));
     }
@@ -206,8 +196,7 @@ export default function ProductsFilters({
     try {
       const result = await getTags({ search: searchTerm, limit: 10 });
       setOptions((prev) => ({ ...prev, tags: result.data }));
-    } catch (error) {
-      console.error("Error searching tags:", error);
+    } catch (ignoreError) {
     } finally {
       setLoading((prev) => ({ ...prev, tags: false }));
     }
@@ -220,8 +209,7 @@ export default function ProductsFilters({
     try {
       const result = await getLabels({ search: searchTerm, limit: 10 });
       setOptions((prev) => ({ ...prev, labels: result.data }));
-    } catch (error) {
-      console.error("Error searching labels:", error);
+    } catch (ignoreError) {
     } finally {
       setLoading((prev) => ({ ...prev, labels: false }));
     }
@@ -233,7 +221,8 @@ export default function ProductsFilters({
       search: debouncedSearch ? debouncedSearch : null,
       page: null,
     });
-  }, [debouncedSearch, setQueries]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearch]);
 
   // No debounced syncing for price; applied via button
 

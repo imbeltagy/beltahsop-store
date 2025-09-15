@@ -25,8 +25,6 @@ async function apiRequest<TResponse, TBody = undefined>(
   const token = cookie.get(COOKIES_KEYS.AccessToken)?.value;
   const lang = cookie.get(COOKIES_KEYS.Locale)?.value || routing.defaultLocale;
 
-  console.log(url);
-
   const headers = {
     ...(!isFormData(body) && {
       "Content-Type": "application/json",
