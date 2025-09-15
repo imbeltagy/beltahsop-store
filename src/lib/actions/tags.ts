@@ -1,8 +1,8 @@
 "use server";
 
+import { Tag } from "../types/api/tags";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
-import { Tag } from "../types/api/tags";
 import { ListResponse } from "../types/api/metadata";
 
 export async function getTags({

@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
+
 import { cn } from "@/lib/utils/style-functions";
+
 import { Iconify } from "../iconify";
 
 interface Option {
@@ -73,6 +75,25 @@ export default function AutocompleteSelect({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleSelect = useCallback(
+    (selectedValue: string) => {
+      onChange(selectedValue);
+      setIsOpen(false);
+      setSearchTerm("");
+      setHighlightedIndex(-1);
+      inputRef.current?.blur();
+    },
+    [onChange],
+  );
+  const handleClear = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      onChange("");
+      setSearchTerm("");
+    },
+    [onChange],
+  );
+
   // Handle keyboard navigation
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -113,27 +134,7 @@ export default function AutocompleteSelect({
           break;
       }
     },
-    [isOpen, highlightedIndex, filteredOptions],
-  );
-
-  const handleSelect = useCallback(
-    (selectedValue: string) => {
-      onChange(selectedValue);
-      setIsOpen(false);
-      setSearchTerm("");
-      setHighlightedIndex(-1);
-      inputRef.current?.blur();
-    },
-    [onChange],
-  );
-
-  const handleClear = useCallback(
-    (e: React.MouseEvent) => {
-      e.stopPropagation();
-      onChange("");
-      setSearchTerm("");
-    },
-    [onChange],
+    [isOpen, highlightedIndex, filteredOptions, handleSelect],
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

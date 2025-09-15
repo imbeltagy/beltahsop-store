@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils/style-functions";
+
 import { Iconify } from "../iconify";
 
 interface ChipProps {

@@ -1,8 +1,8 @@
 "use server";
 
+import { Label } from "../types/api/labels";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
-import { Label } from "../types/api/labels";
 import { ListResponse } from "../types/api/metadata";
 
 export async function getLabels({

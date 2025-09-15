@@ -1,8 +1,8 @@
 "use server";
 
+import { Brand } from "../types/api/brands";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
-import { Brand } from "../types/api/brands";
 import { ListResponse } from "../types/api/metadata";
 
 export async function getBrands({

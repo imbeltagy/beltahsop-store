@@ -1,8 +1,9 @@
 import Link from "next/link";
+
+import { paths } from "@/lib/config/paths";
 import { Chip } from "@/view/components/elements";
 import { Product } from "@/lib/types/api/products";
 import { Rating } from "@/view/components/elements";
-import { paths } from "@/lib/config/paths";
 
 export default function CardContent({ product }: { product: Product }) {
   return (

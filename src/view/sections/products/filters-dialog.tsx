@@ -1,21 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-import ProductsFilters from "./filters";
-import ProductsList from "./products-list";
-import { Button } from "@/view/components/ui/button";
 import { Iconify } from "@/view/components/iconify";
+import { Button } from "@/view/components/ui/button";
+import { useBoolean } from "@/lib/hooks/use-boolean";
 import {
   Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
   DialogClose,
+  DialogContent,
+  DialogTrigger,
 } from "@/view/components/ui/dialog";
-import { useBoolean } from "@/lib/hooks/use-boolean";
+
+import ProductsFilters from "./filters";
 
 export default function ProductsFiltersDialog() {
   const t = useTranslations("Pages.Products");
