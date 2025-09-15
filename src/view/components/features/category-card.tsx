@@ -34,7 +34,13 @@ export default function CategoryCard({
       </Link>
 
       <Link
-        href={paths.category(_id)}
+        href={{
+          pathname: paths.products,
+          query: {
+            [isSubCategory ? "subCategoryId" : "categoryId"]: _id,
+            name: name,
+          },
+        }}
         className="text-foreground block p-4 text-center text-sm font-bold no-underline"
       >
         {name}

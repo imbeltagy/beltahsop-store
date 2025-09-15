@@ -19,8 +19,7 @@ export const paths = {
   profile: "/profile",
   orders: "/orders",
   draft: "/draft",
-  product: (id: string) => `/store/product/${id}`,
-  category: (id: string) => `/store/category/${id}`,
+  product: (id: string) => `/products/${id}`,
 };
 
 export const pathAfterLogin = paths.home;

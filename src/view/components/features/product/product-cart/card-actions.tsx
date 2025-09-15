@@ -16,17 +16,32 @@ import { useActiveCartStore } from "@/lib/store/active-cart";
 
 import IncreamentButton from "../increament-button";
 
-export default function CardActions({ product }: { product: Product }) {
+export default function CardActions({
+  product,
+  className,
+  disableLink,
+}: {
+  product: Product;
+  className?: string;
+  disableLink?: boolean;
+}) {
   return (
-    <div className="relative isolate mt-6 flex justify-between gap-2">
+    <div
+      className={cn(
+        "relative isolate mt-6 flex justify-between gap-2",
+        className,
+      )}
+    >
       <DraftButton product={product} />
 
       <CartButton product={product} />
 
-      <Link
-        className="hover-overlay absolute inset-0 -z-10"
-        href={paths.product(product._id)}
-      />
+      {!disableLink && (
+        <Link
+          className="hover-overlay absolute inset-0 -z-10"
+          href={paths.product(product._id)}
+        />
+      )}
     </div>
   );
 }

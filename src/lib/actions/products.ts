@@ -1,6 +1,6 @@
 "use server";
 
-import { Product } from "../types/api/products";
+import { Product, ProductDetails } from "../types/api/products";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
 import { ListResponse } from "../types/api/metadata";
@@ -73,4 +73,16 @@ export async function getProducts({
   }
 
   return products.data;
+}
+
+export async function getProductById(id: string) {
+  const product = await getData<ProductDetails>(`/products/${id}`, {
+    cache: "no-store",
+  });
+
+  if ("error" in product) {
+    throw new Error(product.error);
+  }
+
+  return product.data;
 }

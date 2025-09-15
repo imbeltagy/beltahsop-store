@@ -105,6 +105,15 @@
     }
   },
   "Pages": {
+    "ProductDetails": {
+      "brand": "Brand",
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "labels": "Labels",
+      "tags": "Tags",
+      "add_to_cart": "Add to cart",
+      "buy_now": "Buy now"
+    },
     "Auth": {
       "welcome_title": "Welcome Back 👋",
       "welcome_subtitle": "Sign in to your account to continue",
