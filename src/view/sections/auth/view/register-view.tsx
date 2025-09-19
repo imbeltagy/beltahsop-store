@@ -71,7 +71,7 @@ export default function RegisterView() {
         email: data.email,
         fullName: data.fullName,
         password: data.password,
-        role: "admin",
+        role: "client",
       });
       router.push(paths.auth.login);
     } catch (error) {
