@@ -56,7 +56,7 @@ export const useActiveCartStore = create<ActiveCartStore>()((set, get) => ({
       } else {
         newState = await removeProductFromActiveCart(
           product.productId,
-          quantityDiff,
+          -quantityDiff,
         );
       }
 
