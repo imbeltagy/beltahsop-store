@@ -28,9 +28,10 @@ export type RegisterPayload = {
 export interface User {
   id: string;
   fullName: string;
-  email: string;
+  email: string | null;
   confirmed: boolean;
   role: UserRole;
+  provider: "email" | "github";
 }
 export type LoginResponse = User & {
   accessToken: string;
@@ -39,12 +40,19 @@ export type LoginResponse = User & {
   refreshTokenExpireDate: string;
 };
 
+export interface GithubSession {
+  providerId: string;
+  fullName: string;
+  provider: string;
+}
+
 export const enum UserRole {
-  ADMIN = 'admin',
-  EMPLOYEE = 'employee',
+  ADMIN = "admin",
+  EMPLOYEE = "employee",
+  CLIENT = "client",
 }
 
 export const enum OTPPurpose {
-  EmailConfirmation = 'email_confirmation',
-  ResetPassword = 'reset_password',
+  EmailConfirmation = "email_confirmation",
+  ResetPassword = "reset_password",
 }

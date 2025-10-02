@@ -31,7 +31,7 @@ export default async function RootLayout({
     <html lang={locale} dir={dir}>
       <body className="grid min-h-screen antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <AuthContext />
+        {/* <AuthContext /> */}
       </body>
     </html>
   );

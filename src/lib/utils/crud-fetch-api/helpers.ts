@@ -1,21 +1,21 @@
-import { Params, Queries } from '@/lib/types/crud-fetch-api';
+import { Params, Queries } from "@/lib/types/crud-fetch-api";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+export const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const convertQueriesIntoString = (queries?: Queries) => {
-  if (!queries) return '';
+  if (!queries) return "";
 
   const searchParams = new URLSearchParams();
 
   Object.entries(queries).forEach(([key, value]) => {
     switch (typeof value) {
-      case 'string':
+      case "string":
         searchParams.set(key, value);
         break;
-      case 'number':
+      case "number":
         searchParams.set(key, value.toString());
         break;
-      case 'boolean':
+      case "boolean":
         searchParams.set(key, value.toString());
         break;
       default:
@@ -23,7 +23,7 @@ export const convertQueriesIntoString = (queries?: Queries) => {
     }
   });
 
-  return searchParams.toString() ? `?${searchParams.toString()}` : '';
+  return searchParams.toString() ? `?${searchParams.toString()}` : "";
 };
 
 export const replaceUrlParams = (url: string, params?: Params) => {
@@ -31,12 +31,16 @@ export const replaceUrlParams = (url: string, params?: Params) => {
 
   return Object.entries(params).reduce((acc, [key, value]) => {
     // Use regex with word boundaries to ensure exact parameter name matching
-    const regex = new RegExp(`:${key}\\b`, 'g');
+    const regex = new RegExp(`:${key}\\b`, "g");
     return acc.replace(regex, value);
   }, url);
 };
 
-export const buildUrl = (endpoint: string, params?: Params, queries?: Queries) => {
+export const buildUrl = (
+  endpoint: string,
+  params?: Params,
+  queries?: Queries,
+) => {
   return `${baseUrl}${replaceUrlParams(endpoint, params)}${convertQueriesIntoString(queries)}`;
 };
 

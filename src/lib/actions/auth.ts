@@ -1,15 +1,20 @@
-'use server';
+"use server";
 
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
-import { axiosInstance } from '../utils/axios';
-import { COOKIES_KEYS } from '../config/global';
-import { endpoints } from '../config/endpoints';
-import { User, LoginResponse } from '../types/auth';
+import { axiosInstance } from "../utils/axios";
+import { COOKIES_KEYS } from "../config/global";
+import { endpoints } from "../config/endpoints";
+import { User, LoginResponse } from "../types/auth";
 
 export async function saveSessionCookies(response: LoginResponse) {
-  const { accessToken, accessTokenExpireDate, refreshToken, refreshTokenExpireDate, ...user } =
-    response;
+  const {
+    accessToken,
+    accessTokenExpireDate,
+    refreshToken,
+    refreshTokenExpireDate,
+    ...user
+  } = response;
 
   const cookiesStore = await cookies();
 
@@ -30,22 +35,29 @@ export async function saveSessionCookies(response: LoginResponse) {
   });
 }
 
-export async function fetchUserByToken() {
-  try {
-    const { user, refreshToken } = await restoreSessionCookies();
+export async function fetchUserByToken(token?: string) {
+  const callbackFunction = async (token: string) => {
+    try {
+      const res = await axiosInstance.post<LoginResponse>(
+        endpoints.auth.refresh,
+        { token },
+      );
 
-    if (!user || !refreshToken) {
-      return { error: 'User not found' };
+      const loginResponse = res.data;
+
+      return loginResponse;
+    } catch (error: any) {
+      return { error: error.message };
     }
+  };
 
-    const res = await axiosInstance.post(endpoints.auth.refresh, { token: refreshToken });
+  if (token) return await callbackFunction(token);
 
-    const loginResponse = res.data as LoginResponse;
-
-    return loginResponse;
-  } catch (error: any) {
-    return { error: error.message };
+  const { user, refreshToken } = await restoreSessionCookies();
+  if (!user || !refreshToken) {
+    return { error: "User not found" };
   }
+  return await callbackFunction(refreshToken);
 }
 
 export async function restoreSessionCookies() {
@@ -55,7 +67,9 @@ export async function restoreSessionCookies() {
   const accessTokenCookie = cookiesStore.get(COOKIES_KEYS.AccessToken);
   const refreshTokenCookie = cookiesStore.get(COOKIES_KEYS.RefreshToken);
 
-  const user = userCookie?.value ? (JSON.parse(userCookie.value) as User) : undefined;
+  const user = userCookie?.value
+    ? (JSON.parse(userCookie.value) as User)
+    : undefined;
   const accessToken = accessTokenCookie?.value || undefined;
   const refreshToken = refreshTokenCookie?.value || undefined;
 

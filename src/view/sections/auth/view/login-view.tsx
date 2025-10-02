@@ -12,15 +12,22 @@ import { useAuthStore } from "@/lib/store/auth";
 import { EMAIL_REGEX } from "@/lib/config/global";
 import { Button } from "@/view/components/elements";
 import Alert from "@/view/components/elements/alert";
+import { useQueryParams } from "@/lib/hooks/use-query-params";
 import RHFTextInput from "@/view/components/rhf-hooks/rhf-textinput";
 
+import GithubButton from "../github-button";
 import AuthHeading from "../../auth-headding";
 
 export default function LoginView() {
   const t = useTranslations();
   const { login } = useAuthStore();
+  const {
+    values: { github_error: githubError },
+  } = useQueryParams(["github_error"]);
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(
+    githubError === "true" ? t("Pages.Auth.github_error") : "",
+  );
 
   const methods = useForm({
     resolver: yupResolver(
@@ -88,6 +95,12 @@ export default function LoginView() {
             >
               {t("Global.Action.login")}
             </Button>
+
+            <div className="my-2 flex items-center">
+              <div className="h-px flex-grow bg-gray-200" />
+            </div>
+
+            <GithubButton />
 
             <div className="mt-2 flex flex-col gap-1">
               <p className="text-center text-sm">

@@ -3,6 +3,8 @@ export const paths = {
   auth: {
     login: "/auth/login",
     register: "/auth/register",
+    providerRegister: "/auth/provider-register",
+    providerLogin: "/auth/provider-login",
     emailConfirmation: "/auth/email-confirmation",
     resetPassword: "/auth/reset-password",
     forgotPassword: "/auth/forgot-password",
@@ -23,3 +25,4 @@ export const paths = {
 };
 
 export const pathAfterLogin = paths.home;
+export const githubAuthFailure = `${paths.auth.login}?github_error=true`;

@@ -129,6 +129,8 @@
       "forgot_password_subtitle": "Enter your email to receive verification code",
       "register_title": "Create Account 🚀",
       "register_subtitle": "Join us and start your journey",
+      "github_register_title": "Login with GitHub 🚀",
+      "github_register_subtitle": "Update your account data to continue",
       "have_account": "Already have an account?",
       "reset_password_title": "Reset Password 🔐",
       "reset_password_subtitle": "Enter your email to receive reset instructions",
@@ -147,7 +149,9 @@
       "login_instead": "Do you want to login instead?",
       "auth_required_title": "Login Required",
       "auth_required_message": "You need to be logged in to complete your purchase. Please log in or create an account to continue.",
-      "go_to_login": "Go to Login"
+      "go_to_login": "Go to Login",
+      "sign_in_with_github": "Login with GitHub",
+      "github_error": "Something went wrong with GitHub. Please try again later."
     },
     "Orders": {
       "title": "My Orders",
@@ -228,7 +232,9 @@
     },
     "Loading": {
       "title": "Loading",
-      "subtitle": "Please wait while we prepare your experience"
+      "subtitle": "Please wait while we prepare your experience",
+      "authenticating": "Authenticating",
+      "authenticating_subtitle": "Please wait while we verify your identity"
     },
     "Product": {
       "add_to_cart": "Add to Cart",
