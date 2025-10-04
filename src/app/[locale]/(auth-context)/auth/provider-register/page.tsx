@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
+import AuthLayout from "@/view/layout/auth";
 import { GithubSession } from "@/lib/types/auth";
 import { githubAuthFailure } from "@/lib/config/paths";
 import GithubRegisterView from "@/view/sections/auth/view/github-register-view";
@@ -15,7 +16,11 @@ export default async function ProviderRegisterPage({ searchParams }: Props) {
 
     const profile = JSON.parse(profileString) as GithubSession;
 
-    return <GithubRegisterView session={profile} />;
+    return (
+      <AuthLayout>
+        <GithubRegisterView session={profile} />
+      </AuthLayout>
+    );
   } catch (ignore) {
     redirect(githubAuthFailure);
   }

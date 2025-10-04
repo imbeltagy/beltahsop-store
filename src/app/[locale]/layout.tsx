@@ -9,7 +9,6 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 
 import { routing } from "@/lib/i18n/routing";
 import { LocaleType } from "@/lib/types/locale";
-import AuthContext from "@/lib/context/auth-context";
 import { localesSettings } from "@/lib/config/locale";
 
 export default async function RootLayout({
@@ -31,7 +30,6 @@ export default async function RootLayout({
     <html lang={locale} dir={dir}>
       <body className="grid min-h-screen antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        {/* <AuthContext /> */}
       </body>
     </html>
   );

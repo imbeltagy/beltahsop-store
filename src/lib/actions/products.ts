@@ -1,9 +1,9 @@
 "use server";
 
-import { Product, ProductDetails } from "../types/api/products";
 import { DEFAULT_LIMIT } from "../config/global";
 import { getData } from "../utils/crud-fetch-api";
 import { ListResponse } from "../types/api/metadata";
+import { Product, ProductDetails } from "../types/api/products";
 
 export type ProducstListPromise = Promise<ListResponse<Product>>;
 
