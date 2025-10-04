@@ -38,8 +38,6 @@ export default async function RootLayout({
 export async function generateMetadata({
   params,
 }: {
-  children: React.ReactNode;
-  auth: React.ReactNode;
   params: Promise<{ locale: LocaleType }>;
 }): Promise<Metadata> {
   const { locale } = await params;
